@@ -6,7 +6,7 @@ Trabalho de Programação II - 2021.1.
 
 A pizzaria Queijada está querendo informatizar o seu sistema de pedidos. Seguindo as demandas do proprietário
 
-## Preview
+## Demandas
 
 <img src="images/R01.png" width="600">
 
