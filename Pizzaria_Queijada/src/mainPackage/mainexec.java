@@ -9,37 +9,58 @@ public class mainexec {
 
         Scanner sc = new Scanner(System.in);
         funcionario fc = new funcionario();
+        funcionario updd = new funcionario();
+        Scanner oqfazer = new Scanner(System.in);
 
-        System.out.println("Digite sua MATRICULA");
-        fc.setMatricula(sc.nextInt());
+        System.out.println("\n1 - Grava \n2 - Atualizar \n");
 
-        System.out.println("Digite seu NOME");
-        fc.setNome(sc.next());
-
-        System.out.println("Digite seu ENDERECO");
-        fc.setEndereco(sc.next());
-
-        System.out.println("Digite sua SENHA");
-        fc.setSenha(sc.nextInt());
-
-        daoControllerMetodos VrController = new daoControllerMetodos();
-        VrController.gravar(fc);
-
+        int oqf;
+        oqf = oqfazer.nextInt();
 //
-//==============================================
-//connectionDao dao = new connectionDao();
 //
-//        funcionario fc = new funcionario();
-//        Scanner sc = new Scanner(System.in);
-//        fc.setMatricula(1);
-//        fc.setSenha(1);
 //
-//        System.out.println("Qual a sua MATRICULA?");
-//        fc.setMatricula(sc.nextInt());
-//        System.out.println("Qual a sua MATRICULA?");
-//        fc.setSenha(sc.nextInt());
+        if (oqf == 1) {
+            System.out.println("Vamos gravar \n");
+
+            System.out.println("Digite sua MATRICULA");
+            fc.setMatricula(sc.nextInt());
+
+            System.out.println("Digite seu NOME");
+            fc.setNome(sc.next());
+
+            System.out.println("Digite seu ENDERECO");
+            fc.setEndereco(sc.next());
+
+            System.out.println("Digite sua SENHA");
+            fc.setSenha(sc.nextInt());
+
+            daoControllerMetodos VrController = new daoControllerMetodos();
+            VrController.gravar(fc);
+        } else {
+            System.out.println("Opção invalida");
+        }
+
+///
+///
 //
-//        System.out.println("Sua mtricula é:" + fc.getMatricula());
-//        System.out.println("Sua senha é:" + fc.getSenha());
+        if (oqf == 2) {
+            System.out.println("Vamos ATUALIZAR \n");
+            System.out.println("Digite sua MATRICULA");
+            fc.setMatricula(sc.nextInt());
+
+            System.out.println("Digite seu NOME");
+            fc.setNome(sc.next());
+
+            System.out.println("Digite seu ENDERECO");
+            fc.setEndereco(sc.next());
+
+            System.out.println("Digite sua SENHA");
+            fc.setSenha(sc.nextInt());
+
+            daoControllerMetodos VrController = new daoControllerMetodos();
+            VrController.update(fc);
+        } else {
+            System.out.println("Opção invalida");
+        }
     }
 }
