@@ -1,16 +1,20 @@
-package clientePackege;
+package clientePackage;
 
-public class cliente {
+import pedidoPackege.pedido;
+
+public class Cliente extends pedido {
 
     private int codigoCliente;
     private String nome;
     private String endereco;
-    private int tel;
+    private String tel;
 
+    @Override
     public int getCodigoCliente() {
         return codigoCliente;
     }
 
+    @Override
     public void setCodigoCliente(int codigoCliente) {
         this.codigoCliente = codigoCliente;
     }
@@ -31,11 +35,11 @@ public class cliente {
         this.endereco = endereco;
     }
 
-    public int getTel() {
+    public String getTel() {
         return tel;
     }
 
-    public void setTel(int tel) {
+    public void setTel(String tel) {
         this.tel = tel;
     }
 }
