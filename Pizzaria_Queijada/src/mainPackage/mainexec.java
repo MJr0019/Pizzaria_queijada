@@ -1,7 +1,7 @@
 package mainPackage;
 
-import funcionariosPackege.authenticationUsers;
-import funcionariosPackege.funcionario;
+import funcionariosPackage.authenticationUsers;
+import funcionariosPackage.Funcionario;
 import java.util.Scanner;
 
 public class mainexec {
@@ -9,8 +9,8 @@ public class mainexec {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        funcionario fc = new funcionario();
-        funcionario updd = new funcionario();
+        Funcionario fc = new Funcionario();
+        Funcionario updd = new Funcionario();
         Scanner oqfazer = new Scanner(System.in);
 
 //        System.out.println("Digite sua MATRICULA");
@@ -35,7 +35,7 @@ public class mainexec {
 //authFuncionario
 
         /*
-    fazer um if de altenticação do funcionario para autorizar os outros metodos,
+    fazer um if de altenticação do Funcionario para autorizar os outros metodos,
     para habilitar os outros metodos
          */
 //
@@ -52,7 +52,7 @@ public class mainexec {
             fc.setEndereco(sc.next());
 
             System.out.println("Digite sua SENHA");
-            fc.setSenha(sc.nextInt());
+            fc.setSenha(sc.next());
 
             daoControllerMetodos VrController = new daoControllerMetodos();
             VrController.gravar(fc);
@@ -72,13 +72,13 @@ public class mainexec {
             fc.setEndereco(sc.next());
 
             System.out.println("Digite sua SENHA");
-            fc.setSenha(sc.nextInt());
+            fc.setSenha(sc.next());
 
             daoControllerMetodos VrController = new daoControllerMetodos();
             VrController.update(fc);
         }
 //
-//   Apagando funcionario
+//   Apagando Funcionario
 //
         if (oqf == 6) {  //fazer uma verificão da pessoa que está deletando
             System.out.println("Vamos APAGAR \n");

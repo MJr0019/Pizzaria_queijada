@@ -1,4 +1,4 @@
-package funcionariosPackege;
+package funcionariosPackage;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,7 +15,7 @@ public class authenticationUsers {
         this.con = new connectionFactory().getConnection();
     }
 
-    public void authFuncionario(funcionario funcionario) {
+    public void authFuncionario(Funcionario funcionario) {
         String sql = "select * from funcionario where matricula =? ";
 
         try {
@@ -33,7 +33,7 @@ public class authenticationUsers {
         }
     }
 
-    authenticationUsers(funcionario fc) {
+    authenticationUsers(Funcionario fc) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

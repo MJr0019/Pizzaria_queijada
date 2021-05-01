@@ -1,13 +1,14 @@
-package funcionariosPackege;
+package funcionariosPackage;
 
 import java.util.Scanner;
+import pedidoPackage.Pedido;
 
-public class funcionario {
+public class Funcionario extends Pedido {
 
     private int matricula;
     private String nome;
     private String endereco;
-    private int senha;
+    private String senha;
 
     public int getMatricula() {
         return matricula;
@@ -33,14 +34,18 @@ public class funcionario {
         this.endereco = endereco;
     }
 
-    public int getSenha() {
+    public String getSenha() {
         return senha;
     }
 
-    public void setSenha(int senha) {
+    public void setSenha(String senha) {
         this.senha = senha;
     }
 
+//    public booleanToString logar(int matricula) {
+//        return matricula;
+//    }
+//
     public boolean setMatricula(Scanner sc) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

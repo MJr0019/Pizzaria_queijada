@@ -1,15 +1,19 @@
-package itenPedidoPackage;
+package ItemDePedidoPackage;
 
-public class itenPedido {
+import pedidoPackage.Pedido;
+
+public class ItemDePedido extends Pedido {
 
     private int codigoPedido;
     private int codigoProduto;
     private int quantidade;
 
+    @Override
     public int getCodigoPedido() {
         return codigoPedido;
     }
 
+    @Override
     public void setCodigoPedido(int codigoPedido) {
         this.codigoPedido = codigoPedido;
     }

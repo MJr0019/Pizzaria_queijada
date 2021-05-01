@@ -1,8 +1,8 @@
-package pedidoPackege;
+package pedidoPackage;
 
 import java.util.Date;
 
-public class pedido {
+public class Pedido {
 
     private int codigoPedido;
     private int codigoCliente;

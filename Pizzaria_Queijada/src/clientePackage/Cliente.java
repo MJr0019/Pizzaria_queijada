@@ -1,8 +1,8 @@
 package clientePackage;
 
-import pedidoPackege.pedido;
+import pedidoPackage.Pedido;
 
-public class Cliente extends pedido {
+public class Cliente extends Pedido {
 
     private int codigoCliente;
     private String nome;
