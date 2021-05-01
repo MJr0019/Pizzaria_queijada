@@ -9,10 +9,10 @@ public class connectionDao {
     public static void main(String[] args) throws SQLException {
 
         String host = "localhost";
-        String port = "5500";
-        String db_name = "postgres";
+        String port = "5432";
+        String db_name = "pizzaria";
         String username = "postgres";
-        String password = "12345";
+        String password = "123123";
 
         try {
             Class.forName("org.postgresql.Driver");

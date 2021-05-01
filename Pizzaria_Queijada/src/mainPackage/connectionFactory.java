@@ -9,7 +9,7 @@ public class connectionFactory {
     public Connection getConnection() {
         String host = "localhost";
         String port = "5432";
-        String db_name = "postgres";
+        String db_name = "pizzaria";
         String username = "postgres";
         String password = "123123";
 
