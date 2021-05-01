@@ -8,10 +8,10 @@ public class connectionFactory {
 
     public Connection getConnection() {
         String host = "localhost";
-        String port = "5500";
+        String port = "5432";
         String db_name = "postgres";
         String username = "postgres";
-        String password = "12345";
+        String password = "123123";
 
         try {
             Class.forName("org.postgresql.Driver");

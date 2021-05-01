@@ -1,5 +1,6 @@
 package mainPackage;
 
+import funcionariosPackege.authenticationUsers;
 import funcionariosPackege.funcionario;
 import java.util.Scanner;
 
@@ -12,6 +13,14 @@ public class mainexec {
         funcionario updd = new funcionario();
         Scanner oqfazer = new Scanner(System.in);
 
+//        System.out.println("Digite sua MATRICULA");
+//        fc.setMatricula(sc.nextInt());
+//
+//        authenticationUsers V = new authenticationUsers();
+//        V.authFuncionario(fc);
+//
+//
+//
         System.out.println(
                 "Escolha uma opção abaixo:\n"
                 + "1 - Registrar \n" //adicionar
@@ -21,11 +30,9 @@ public class mainexec {
                 + "5 - Pedidos \n"
                 + "6 - funcionários \n "
         );
-
-        int oqf;
-        oqf = oqfazer.nextInt();
+        int oqf = oqfazer.nextInt();
 //
-//
+//authFuncionario
 
         /*
     fazer um if de altenticação do funcionario para autorizar os outros metodos,
@@ -82,8 +89,6 @@ public class mainexec {
 //            fc.setNome(sc.next());
             daoControllerMetodos VrController = new daoControllerMetodos();
             VrController.deleteFuncionario(fc);
-        } else {
-            System.out.println("Opção invalida");
         }
     }
 }

@@ -68,24 +68,23 @@ public class daoControllerMetodos {
     /* todos os metodos devem ficar por dentro desse para fazer a auth,
     apenas pessoas cadastradas podem fazer alteração
      */
-    public void authFuncionario(funcionario funcionario) {
-        String sql = "select * from funcionario where matricula = ?";
-
-        try {
-            PreparedStatement stmt = con.prepareStatement(sql);
-
-            stmt.setInt(1, funcionario.getMatricula());
-            System.out.println("Usuario autenticado no banco");
-
-            stmt.execute();
-            stmt.close();
-            con.close();
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
+//    public void authFuncionario(funcionario funcionario) {
+//        String sql = "select * from funcionario where matricula = ?";
+//
+//        try {
+//            PreparedStatement stmt = con.prepareStatement(sql);
+//
+//            stmt.setInt(1, funcionario.getMatricula());
+//            System.out.println("Usuario autenticado no banco");
+//
+//            stmt.execute();
+//            stmt.close();
+//            con.close();
+//
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
     //////////////
     //
     //
