@@ -42,15 +42,16 @@ public class daoControllerMetodos {
 
     // new method editar
     public void update(funcionario funcionario) {
-        String sql = "update funcionario set matricula = ? , nome = ?, endereco = ?, senha = ?";
+        String sql = "update funcionario set nome = ?, endereco = ?, senha = ? where matricula = ? ";
 
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
 
-            stmt.setInt(1, funcionario.getMatricula());
-            stmt.setString(2, funcionario.getNome());
-            stmt.setString(3, funcionario.getEndereco());
-            stmt.setInt(4, funcionario.getSenha());
+            stmt.setString(1, funcionario.getNome());
+            stmt.setString(2, funcionario.getEndereco());
+            stmt.setInt(3, funcionario.getSenha());
+            stmt.setInt(4, funcionario.getMatricula());
+
             System.out.println("Usuario Atualizados no banco");
 
             stmt.execute();
@@ -62,32 +63,6 @@ public class daoControllerMetodos {
         }
     }
 
-    //
-    //
-    //
-    /* todos os metodos devem ficar por dentro desse para fazer a auth,
-    apenas pessoas cadastradas podem fazer alteração
-     */
-//    public void authFuncionario(funcionario funcionario) {
-//        String sql = "select * from funcionario where matricula = ?";
-//
-//        try {
-//            PreparedStatement stmt = con.prepareStatement(sql);
-//
-//            stmt.setInt(1, funcionario.getMatricula());
-//            System.out.println("Usuario autenticado no banco");
-//
-//            stmt.execute();
-//            stmt.close();
-//            con.close();
-//
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-    //////////////
-    //
-    //
     public void deleteFuncionario(funcionario funcionario) {
         String sql = "delete from funcionario where matricula = ?";
 

@@ -16,7 +16,7 @@ public class authenticationUsers {
     }
 
     public void authFuncionario(funcionario funcionario) {
-        String sql = "SELECT matricula";
+        String sql = "select * from funcionario where matricula =? ";
 
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
