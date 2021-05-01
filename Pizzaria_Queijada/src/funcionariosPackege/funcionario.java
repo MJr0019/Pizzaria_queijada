@@ -1,5 +1,7 @@
 package funcionariosPackege;
 
+import java.util.Scanner;
+
 public class funcionario {
 
     private int matricula;
@@ -37,5 +39,9 @@ public class funcionario {
 
     public void setSenha(int senha) {
         this.senha = senha;
+    }
+
+    public boolean setMatricula(Scanner sc) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
