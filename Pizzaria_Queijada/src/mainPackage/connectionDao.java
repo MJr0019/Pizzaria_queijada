@@ -15,9 +15,9 @@ public class connectionDao {
 
         String host = "localhost";
         String port = "5500";
-        String db_name = "postgres";
+        String db_name = "pizzaria";
         String username = "postgres";
-        String password = "12345";
+        String password = "123123";
 
         Scanner sc = new Scanner(System.in);
         Scanner oqfazer = new Scanner(System.in);
