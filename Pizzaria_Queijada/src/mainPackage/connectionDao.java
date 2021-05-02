@@ -31,7 +31,7 @@ public class connectionDao {
             //
             Statement stmt = con.createStatement();
 
-            System.out.println("MATRICULA PARA AUTENTICAR");
+            System.out.println("MATRICULA PARA AUTENTICAR"); //verificando se o usuário existe
             int nomeAuthenticar = sc.nextInt();
 
             String SQL = "SELECT * FROM funcionario WHERE matricula='" + nomeAuthenticar + "'";
@@ -43,10 +43,12 @@ public class connectionDao {
                         "Escolha uma opção abaixo:\n"
                         + "1 - Registrar \n" //adicionar
                         + "2 - Atualizar \n" //editar
-                        + "3 - apagar clientes \n"
-                        + "4 - Produtos \n"
-                        + "5 - Pedidos \n"
-                        + "6 - funcionários \n "
+                        + "3-  Realizar Pedido \n\n"
+                        + " ======== Funcionalidades de APAGAR ===== \n"
+                        + "4 - apagar clientes \n"
+                        + "5 - Apagar Produtos \n"
+                        + "6 - Apagar Pedidos \n"
+                        + "7 - Apagar funcionários \n "
                 );
                 int oqf = oqfazer.nextInt();
                 if (oqf == 1) {
@@ -89,9 +91,43 @@ public class connectionDao {
                     VrController.update(fc);
                 }
 
+//
+//
+//   Fazer pedido pedido
+                if (oqf == 3) {
+                    System.out.println("\nREALIZAR PEDIDO: Os produtos disponiveis abaixo:");
+
+                    System.out.println(
+                            "Escolha uma opção abaixo:\n"
+                            + "(1001) 1 - Pizza Muçarela: R$:5.00\n"
+                            + "(1002) 2 - Pizza Calabresa R$:6.00\n"
+                            + "(1003) 3-  Pizza Presunto R$:6.00\n"
+                            + "(1004) 4 - Refrigerante de cola R$:8.00\n"
+                            + "(1005) 5 - Refrigerante de laranja R$:7.00\n"
+                            + "(1006) 6 - Mini pudim R$:3.50\n"
+                            + "(1007) 7 - Brigadeiro R$:2.50\n "
+                    );
+
+                    System.out.println("Digite sua Código do pedido");
+                    fc.setMatricula(sc.nextInt());
+
+                    System.out.println("Digite o Codigo do cliente");
+                    fc.setNome(sc.next());
+
+                    System.out.println("Digite o código do funcionario");
+                    fc.setEndereco(sc.next());
+
+                    System.out.println("Valor total");
+                    fc.setEndereco(sc.next());
+
+                    System.out.println("Digite a data do pedido");
+                    fc.setSenha(sc.next());
+                }
+
+//
 //   Apagando Funcionario
 //
-                if (oqf == 6) {  //fazer uma verificão da pessoa que está deletando
+                if (oqf == 7) {
                     System.out.println("Vamos APAGAR \n");
                     System.out.println("Digite A MATRICULA do FUNCIONADO que vai ser apagado");
                     fc.setMatricula(sc.nextInt());
@@ -102,9 +138,6 @@ public class connectionDao {
             } else {
                 System.out.println("USUARIO INVALIDO");
             }
-//
-//
-//
             con.close();
             System.out.println("Conexão encerrada!");
         } catch (ClassNotFoundException | SQLException e) {
