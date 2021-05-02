@@ -14,7 +14,7 @@ public class connectionDao {
     public static void main(String[] args) throws SQLException {
 
         String host = "localhost";
-        String port = "5500";
+        String port = "5432";
         String db_name = "pizzaria";
         String username = "postgres";
         String password = "123123";
