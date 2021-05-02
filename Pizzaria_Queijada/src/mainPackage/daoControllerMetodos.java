@@ -29,13 +29,13 @@ public class daoControllerMetodos {
             stmt.setString(2, funcionario.getNome());
             stmt.setString(3, funcionario.getEndereco());
             stmt.setString(4, funcionario.getSenha());
-            System.out.println("\n"+"Novo funcionario Adcionado ao Sitema.");
+            System.out.println("\n" + "Novo funcionario Adcionado ao Sitema.");
 
             stmt.execute();
             stmt.close();
             con.close();
 
-            System.out.println("\n"+"Resgistrado com sucesso!" + "\n");
+            System.out.println("\n" + "Resgistrado com sucesso!" + "\n");
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -54,7 +54,7 @@ public class daoControllerMetodos {
             stmt.setString(3, Funcionario.getSenha());
             stmt.setInt(4, Funcionario.getMatricula());
 
-            System.out.println("\n"+"Dados do funcionario atualizados com sucesso!" + "\n");
+            System.out.println("\n" + "Dados do funcionario atualizados com sucesso!" + "\n");
 
             stmt.execute();
             stmt.close();
@@ -73,7 +73,7 @@ public class daoControllerMetodos {
 
             stmt.setInt(1, funcionario.getMatricula());
 
-            System.out.println("\n"+"Funcionario Apagado do Sistema!" + "\n");
+            System.out.println("\n" + "Funcionario Apagado do Sistema!" + "\n");
 
             stmt.execute();
             stmt.close();
@@ -115,4 +115,27 @@ public class daoControllerMetodos {
         }
     }
 
+    //
+    //
+    //deletar pedido
+    //
+    //
+    public void ApagarPedido(Pedido pedido) {
+        String sql = "delete from pedido where codigo_pedido = ?";
+
+        try {
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            stmt.setInt(1, pedido.getCodigoPedido());
+
+            System.out.println("\n" + "Pedido Apagado do Sistema!" + "\n");
+
+            stmt.execute();
+            stmt.close();
+            con.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
