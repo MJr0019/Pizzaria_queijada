@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class connectionDao {
@@ -20,6 +21,7 @@ public class connectionDao {
 
         Scanner sc = new Scanner(System.in);
         Scanner oqfazer = new Scanner(System.in);
+        Scanner np = new Scanner(System.in);
         Scanner cardapio = new Scanner(System.in);
         Funcionario fc = new Funcionario();
 
@@ -87,6 +89,7 @@ public class connectionDao {
 
                         daoControllerMetodos VrController = new daoControllerMetodos();
                         VrController.gravar(fc);
+
                     }
 
                     //
@@ -129,27 +132,43 @@ public class connectionDao {
 
                         int cp = cardapio.nextInt();
                         if (cp == 1001) {
-                            System.out.println("Confirme o código do pedido"); //codigo do pedido
+
+                            System.out.println("Informe o codigo do pedido"); //codigo do pedido
                             fc.setCodigoPedido(sc.nextInt());
 
                             //gerar um código aleatorio para o cliente
-                            //                    System.out.println("Digite o Codigo do cliente");
-                            //                    fc.setNome(sc.next());
-                            System.out.println("Digite o seu código de funcionario");
+                            System.out.println("Digite o Codigo do cliente");
+                            fc.setCodigoCliente(sc.nextInt());
+                            System.out.println("Código do funcionario");
+                            //+ matriculaAuthenticator
                             fc.setCodigoFuncionario(sc.nextInt());
                             //
-                            //
-                            //precisa declarar a data
-                            //                        System.out.println("Digite a data do pedido");
-                            //                        fc.setDataPedido(sc.next());
-                            //
-                            //
+                            int x, y, z;
+                            System.out.println("Digite o ano do pedido: ");
+                            x = sc.nextInt();
+                            System.out.println("Digite o mes do pedido: ");
+                            y = sc.nextInt();
+                            System.out.println("Digite o dia do pedido: ");
+                            z = sc.nextInt();
+
+                            LocalDate lD = LocalDate.of(x, y, z);
+
+                            //perguntar se o mesmo precisa fazer outro pedido.
+//                            int op = np.nextInt();
+//                            System.out.println("Deseja realizar outro pedido?"
+//                                    + "1 - Sim"
+//                                    + "2 - não e proseguir ");
                             System.out.println("Valor total");
                             fc.setValorTotal(sc.nextInt());
 
                             daoControllerMetodos VrController = new daoControllerMetodos();
-                            VrController.RealizarPedido(fc);
+                            VrController.RealizarPedido(fc, lD);
                         }
+                        //
+                        //
+                        //
+                        //
+
                         if (cp == 1002) {
                             System.out.println("Confirme o código do pedido");
                             fc.setMatricula(sc.nextInt());

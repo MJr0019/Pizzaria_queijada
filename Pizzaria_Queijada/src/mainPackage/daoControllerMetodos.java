@@ -2,7 +2,7 @@ package mainPackage;
 
 import funcionariosPackage.Funcionario;
 import java.sql.Connection;
-import java.sql.Date;
+import java.time.LocalDate;
 import java.sql.PreparedStatement;
 //import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -89,17 +89,19 @@ public class daoControllerMetodos {
     // Declarando pedido
     //
     //
-    public void RealizarPedido(Pedido pedido) {
+    public void RealizarPedido(Pedido pedido, LocalDate lD) {
         String sql = "insert into pedido (codigo_pedido, codigo_cliente, codigo_funcionario, data_pedido, valor_total) values (?,?,?,?,?)";
 
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
+            //LocalDate localDate = LocalDate.now();
+            LocalDate localDate = lD;
 
-            //push nos campos de Funcionario
+//push nos campos de Funcionario
             stmt.setInt(1, pedido.getCodigoPedido());
             stmt.setInt(2, pedido.getCodigoCliente());
             stmt.setInt(3, pedido.getCodigoFuncionario());
-            stmt.setDate(4, (Date) pedido.getDataPedido());
+            stmt.setObject(4, localDate); //pegando a data
             stmt.setInt(5, pedido.getValorTotal());
 
             System.out.println("Pedido REALIZADO COM SUCESSO");
