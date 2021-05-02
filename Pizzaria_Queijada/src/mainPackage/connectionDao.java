@@ -1,5 +1,6 @@
 package mainPackage;
 
+import clientePackage.Cliente;
 import funcionariosPackage.Funcionario;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,9 +22,9 @@ public class connectionDao {
 
         Scanner sc = new Scanner(System.in);
         Scanner oqfazer = new Scanner(System.in);
-        Scanner np = new Scanner(System.in);
         Scanner cardapio = new Scanner(System.in);
         Funcionario fc = new Funcionario();
+        Cliente cl = new Cliente();
 
         try {
             Class.forName("org.postgresql.Driver");
@@ -63,6 +64,7 @@ public class connectionDao {
                             + "2 - Atualizar \n" //Editar F
                             + "3 - Apagar \n "// Apagar F
                             + "\n ======== Funcionalidades de Cliente ===== \n"
+                            + "4-  Cadastrar cliente \n\n"
                             + "4-  Realizar Pedido \n\n"
                             + " ======== Funcionalidades de APAGAR ===== \n"
                             + "5 - Apagar Clientes \n"
@@ -112,11 +114,42 @@ public class connectionDao {
                         daoControllerMetodos VrController = new daoControllerMetodos();
                         VrController.update(fc);
                     }
+                    //
+                    //
+                    //Cadastrar cliente
+                    //
+                    //
+                    if (oqf == 4) {
+                        System.out.println("Vamos Cadastrar o cliente! \n");
+                        System.out.println("Informe um código para o cliente");
+                        cl.setCodigoCliente(sc.nextInt());
+                        //
+                        System.out.println("Informe o nome do cliente");
+                        cl.setNome(sc.next());
+                        //
+                        System.out.println("Informe o endereço do cliente");
+                        cl.setEndereco(sc.next());
+                        //
+                        System.out.println("Informe o telefone do cliente");
+                        cl.setTel(sc.next());
+
+                        daoControllerMetodos VrController = new daoControllerMetodos();
+                        VrController.CadastrarCliente(cl);
+                    }
+                    if (oqf == 5) {
+                        System.out.println("Vamos apagar o cliente! \n");
+                        System.out.println("Informe o codigo do cliente");
+                        cl.setCodigoCliente(sc.nextInt());
+                        //
+                        //
+                        daoControllerMetodos VrController = new daoControllerMetodos();
+                        VrController.ApagarCliente(cl);
+                    }
 
                     //
                     //
                     //   Fazer pedido pedido
-                    if (oqf == 4) {
+                    if (oqf == 40) {
                         System.out.println("\nREALIZAR PEDIDO: Os produtos disponiveis abaixo:");
 
                         System.out.println( //passar o if pelo número do pedido
