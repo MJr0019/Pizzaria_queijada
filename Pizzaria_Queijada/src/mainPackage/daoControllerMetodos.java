@@ -29,13 +29,13 @@ public class daoControllerMetodos {
             stmt.setString(2, funcionario.getNome());
             stmt.setString(3, funcionario.getEndereco());
             stmt.setString(4, funcionario.getSenha());
-            System.out.println("Usuario ADICIONADOS no banco");
+            System.out.println("\n"+"Novo funcionario Adcionado ao Sitema.");
 
             stmt.execute();
             stmt.close();
             con.close();
 
-            System.out.println("Gravado com sucesso");
+            System.out.println("\n"+"Resgistrado com sucesso!" + "\n");
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -54,7 +54,7 @@ public class daoControllerMetodos {
             stmt.setString(3, Funcionario.getSenha());
             stmt.setInt(4, Funcionario.getMatricula());
 
-            System.out.println("Usuario Atualizados no banco");
+            System.out.println("\n"+"Dados do funcionario atualizados com sucesso!" + "\n");
 
             stmt.execute();
             stmt.close();
@@ -73,7 +73,7 @@ public class daoControllerMetodos {
 
             stmt.setInt(1, funcionario.getMatricula());
 
-            System.out.println("Usuario Apagado do banco");
+            System.out.println("\n"+"Funcionario Apagado do Sistema!" + "\n");
 
             stmt.execute();
             stmt.close();
