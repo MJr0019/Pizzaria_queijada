@@ -113,19 +113,26 @@ public class connectionDao {
 
                     int cp = cardapio.nextInt();
                     if (cp == 1001) {
-                        System.out.println("Confirme o código do pedido");
-                        fc.setMatricula(sc.nextInt());
+                        System.out.println("Confirme o código do pedido"); //codigo do pedido
+                        fc.setCodigoPedido(sc.nextInt());
 
+                        //gerar um código aleatorio para o cliente
 //                    System.out.println("Digite o Codigo do cliente");
 //                    fc.setNome(sc.next());
                         System.out.println("Digite o seu código de funcionario");
-                        fc.setEndereco(sc.next());
-
+                        fc.setCodigoFuncionario(sc.nextInt());
+//
+//
+                        //precisa declarar a data
+//                        System.out.println("Digite a data do pedido");
+//                        fc.setDataPedido(sc.next());
+//
+//
                         System.out.println("Valor total");
-                        fc.setEndereco(sc.next());
+                        fc.setValorTotal(sc.nextInt());
 
-                        System.out.println("Digite a data do pedido");
-                        fc.setSenha(sc.next());
+                        daoControllerMetodos VrController = new daoControllerMetodos();
+                        VrController.RealizarPedido(fc);
                     }
                     if (cp == 1002) {
                         System.out.println("Confirme o código do pedido");
