@@ -166,7 +166,10 @@ public class connectionDao {
                     //   Fazer pedido pedido
                     if (oqf == 6) {
                         
-                            fc.setCodigoPedido(2018); // Número do Pedido
+                            Math.random();
+                            int pedido = (int) (Math.random() * 2000);
+
+                            fc.setCodigoPedido(pedido); // Número do Pedido
                             
                             System.out.println("Digite o Codigo do cliente");
                             fc.setCodigoCliente(sc.nextInt()); // Código do Clinete
@@ -175,7 +178,7 @@ public class connectionDao {
                             
                             LocalDate lD = LocalDate.now(); // Data dinamica no B.D
                             
-                            int ValorDoProdutoTotal = 5;
+                            int ValorDoProdutoTotal = 0;
                             
                             System.out.println("\nREALIZAR PEDIDO: Os produtos disponiveis abaixo:");
 
@@ -191,9 +194,17 @@ public class connectionDao {
                         );
                             
                             
-                         int cp = cardapio.nextInt();                        
+                         int cp = cardapio.nextInt();   
+                         
                             if (cp == 1001) {
                                 
+                                ValorDoProdutoTotal = 5;
+                                  
+                            }
+                            
+                            if (cp == 1002) {
+                                
+                                ValorDoProdutoTotal = 6;
                                   
                             }
                            
