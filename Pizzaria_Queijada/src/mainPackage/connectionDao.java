@@ -31,6 +31,8 @@ public class connectionDao {
             //
             Statement stmt = con.createStatement();
 
+            //fazer um if global, perguntar se é funcionario ou cliente
+            //
             System.out.println("MATRICULA PARA AUTENTICAR"); //verificando se o usuário existe
             int nomeAuthenticar = sc.nextInt();
 
@@ -97,7 +99,7 @@ public class connectionDao {
                 if (oqf == 3) {
                     System.out.println("\nREALIZAR PEDIDO: Os produtos disponiveis abaixo:");
 
-                    System.out.println(
+                    System.out.println( //passar o if pelo número do pedido
                             "Escolha uma opção abaixo:\n"
                             + "(1001) 1 - Pizza Muçarela: R$:5.00\n"
                             + "(1002) 2 - Pizza Calabresa R$:6.00\n"
