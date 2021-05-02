@@ -64,6 +64,8 @@ public class connectionDao {
                                 + "5 - Apagar Produtos \n"
                                 + "6 - Apagar Pedidos \n"
                                 + "7 - Apagar Funcionários \n "// Apagar F
+                                + "\n ======== Sair do Sistema ===== \n"
+                                + "99 - Log-out (Sair do Sistema) \n "
                         );
                         int oqf = oqfazer.nextInt();
                         if (oqf == 1) {
@@ -114,13 +116,13 @@ public class connectionDao {
 
                             System.out.println( //passar o if pelo número do pedido
                                     "Escolha uma opção abaixo: EX: 1001 ou 1002 ...\n"
-                                    + "(1001) 1 - Pizza Muçarela: R$:5.00\n"
-                                    + "(1002) 2 - Pizza Calabresa R$:6.00\n"
-                                    + "(1003) 3-  Pizza Presunto R$:6.00\n"
-                                    + "(1004) 4 - Refrigerante de cola R$:8.00\n"
-                                    + "(1005) 5 - Refrigerante de laranja R$:7.00\n"
-                                    + "(1006) 6 - Mini pudim R$:3.50\n"
-                                    + "(1007) 7 - Brigadeiro R$:2.50\n "
+                                    + "(1001)   -   Pizza Muçarela: R$:5.00\n"
+                                    + "(1002)   -   Pizza Calabresa R$:6.00\n"
+                                    + "(1003)   -   Pizza Presunto R$:6.00\n"
+                                    + "(1004)   -   Refrigerante de cola R$:8.00\n"
+                                    + "(1005)   -   Refrigerante de laranja R$:7.00\n"
+                                    + "(1006)   -   Mini pudim R$:3.50\n"
+                                    + "(1007)   -   Brigadeiro R$:2.50\n "
                             );
 
                             int cp = cardapio.nextInt();
@@ -242,12 +244,17 @@ public class connectionDao {
                             daoControllerMetodos VrController = new daoControllerMetodos();
                             VrController.deleteFuncionario(fc);
                         }
+                        
+                        if (oqf == 99) {
+                            con.close();
+                            System.out.println("\nLogoff Realizado! \n");
+                        }
 
                     } else {
-                        System.out.println("SENHA INVALIDO");
+                        System.out.println("SENHA INVALIDA");
                     }
                 }else{
-                    System.out.println("MATRICULA INVALIDO");
+                    System.out.println("MATRICULA INVALIDA");
                 }
             con.close();
             System.out.println("Conexão encerrada!");
