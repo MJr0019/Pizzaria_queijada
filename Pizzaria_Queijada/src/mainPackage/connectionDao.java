@@ -20,6 +20,7 @@ public class connectionDao {
 
         Scanner sc = new Scanner(System.in);
         Scanner oqfazer = new Scanner(System.in);
+        Scanner cardapio = new Scanner(System.in);
         Funcionario fc = new Funcionario();
 
         try {
@@ -110,19 +111,106 @@ public class connectionDao {
                             + "(1007) 7 - Brigadeiro R$:2.50\n "
                     );
 
-                    System.out.println("Digite o Código do pedido");
-                    fc.setMatricula(sc.nextInt());
+                    int cp = cardapio.nextInt();
+                    if (cp == 1001) {
+                        System.out.println("Digite o codigo do pedido");
+                        fc.setMatricula(sc.nextInt());
 
 //                    System.out.println("Digite o Codigo do cliente");
 //                    fc.setNome(sc.next());
-                    System.out.println("Digite o código do funcionario");
-                    fc.setEndereco(sc.next());
+                        System.out.println("Digite o código do funcionario");
+                        fc.setEndereco(sc.next());
 
-                    System.out.println("Valor total");
-                    fc.setEndereco(sc.next());
+                        System.out.println("Valor total");
+                        fc.setEndereco(sc.next());
 
-                    System.out.println("Digite a data do pedido");
-                    fc.setSenha(sc.next());
+                        System.out.println("Digite a data do pedido");
+                        fc.setSenha(sc.next());
+                    }
+                    if (cp == 1002) {
+                        System.out.println("Digite o Código do pedido");
+                        fc.setMatricula(sc.nextInt());
+//                    System.out.println("Digite o Codigo do cliente");
+//                    fc.setNome(sc.next());
+                        System.out.println("Digite o código do funcionario");
+                        fc.setEndereco(sc.next());
+
+                        System.out.println("Valor total");
+                        fc.setEndereco(sc.next());
+
+                        System.out.println("Digite a data do pedido");
+                        fc.setSenha(sc.next());
+                    }
+                    if (cp == 1003) {
+                        System.out.println("Digite o Código do pedido");
+                        fc.setMatricula(sc.nextInt());
+//                    System.out.println("Digite o Codigo do cliente");
+//                    fc.setNome(sc.next());
+                        System.out.println("Digite o código do funcionario");
+                        fc.setEndereco(sc.next());
+
+                        System.out.println("Valor total");
+                        fc.setEndereco(sc.next());
+
+                        System.out.println("Digite a data do pedido");
+                        fc.setSenha(sc.next());
+                    }
+                    if (cp == 1004) {
+                        System.out.println("Digite o Código do pedido");
+                        fc.setMatricula(sc.nextInt());
+//                    System.out.println("Digite o Codigo do cliente");
+//                    fc.setNome(sc.next());
+                        System.out.println("Digite o código do funcionario");
+                        fc.setEndereco(sc.next());
+
+                        System.out.println("Valor total");
+                        fc.setEndereco(sc.next());
+
+                        System.out.println("Digite a data do pedido");
+                        fc.setSenha(sc.next());
+                    }
+                    if (cp == 1005) {
+                        System.out.println("Digite o Código do pedido");
+                        fc.setMatricula(sc.nextInt());
+//                    System.out.println("Digite o Codigo do cliente");
+//                    fc.setNome(sc.next());
+                        System.out.println("Digite o código do funcionario");
+                        fc.setEndereco(sc.next());
+
+                        System.out.println("Valor total");
+                        fc.setEndereco(sc.next());
+
+                        System.out.println("Digite a data do pedido");
+                        fc.setSenha(sc.next());
+                    }
+                    if (cp == 1006) {
+                        System.out.println("Digite o Código do pedido");
+                        fc.setMatricula(sc.nextInt());
+//                    System.out.println("Digite o Codigo do cliente");
+//                    fc.setNome(sc.next());
+                        System.out.println("Digite o código do funcionario");
+                        fc.setEndereco(sc.next());
+
+                        System.out.println("Valor total");
+                        fc.setEndereco(sc.next());
+
+                        System.out.println("Digite a data do pedido");
+                        fc.setSenha(sc.next());
+                    }
+                    if (cp == 1007) {
+                        System.out.println("Digite o Código do pedido");
+                        fc.setMatricula(sc.nextInt());
+//                    System.out.println("Digite o Codigo do cliente");
+//                    fc.setNome(sc.next());
+                        System.out.println("Digite o código do funcionario");
+                        fc.setEndereco(sc.next());
+
+                        System.out.println("Valor total");
+                        fc.setEndereco(sc.next());
+
+                        System.out.println("Digite a data do pedido");
+                        fc.setSenha(sc.next());
+                    }
                 }
 
 //
