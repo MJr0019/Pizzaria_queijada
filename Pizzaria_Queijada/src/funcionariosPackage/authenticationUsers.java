@@ -18,6 +18,7 @@ public class authenticationUsers {
     public void authFuncionario(Funcionario funcionario) {
         String sql = "select * from funcionario where matricula =? ";
 
+        System.out.println("Infome a matricula");
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setInt(1, funcionario.getMatricula());
