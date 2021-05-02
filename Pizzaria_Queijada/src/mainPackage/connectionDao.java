@@ -108,12 +108,11 @@ public class connectionDao {
                             + "(1007) 7 - Brigadeiro R$:2.50\n "
                     );
 
-                    System.out.println("Digite sua Código do pedido");
+                    System.out.println("Digite o Código do pedido");
                     fc.setMatricula(sc.nextInt());
 
-                    System.out.println("Digite o Codigo do cliente");
-                    fc.setNome(sc.next());
-
+//                    System.out.println("Digite o Codigo do cliente");
+//                    fc.setNome(sc.next());
                     System.out.println("Digite o código do funcionario");
                     fc.setEndereco(sc.next());
 
