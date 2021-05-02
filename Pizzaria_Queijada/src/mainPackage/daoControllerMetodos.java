@@ -1,5 +1,6 @@
 package mainPackage;
 
+import clientePackage.Cliente;
 import funcionariosPackage.Funcionario;
 import java.sql.Connection;
 import java.time.LocalDate;
@@ -135,6 +136,61 @@ public class daoControllerMetodos {
             stmt.execute();
             stmt.close();
             con.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    //
+    //
+    //Cadastrando cliente
+    //
+    //
+    public void CadastrarCliente(Cliente cliente) {
+        String sql = "insert into cliente (codigo_cliente, nome, endereco, tel) values (?,?,?,?)";
+
+        try {
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+//push nos campos de Funcionario
+            stmt.setInt(1, cliente.getCodigoCliente());
+            stmt.setString(2, cliente.getNome());
+            stmt.setString(3, cliente.getEndereco());
+            stmt.setString(4, cliente.getTel());
+
+            System.out.println("\nCliente cadastrado com sucesso\n");
+
+            stmt.execute();
+            stmt.close();
+            con.close();
+
+            System.out.println("Gravado com sucesso");
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    //apagar cliente
+    //
+    //
+    public void ApagarCliente(Cliente cliente) {
+        String sql = "delete from cliente where codigo_cliente =?";
+
+        try {
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+//push nos campos de Funcionario
+            stmt.setInt(1, cliente.getCodigoCliente());
+
+            System.out.println("\nCliente pagado com sucesso\n");
+
+            stmt.execute();
+            stmt.close();
+            con.close();
+
+            System.out.println("Apagado com sucesso");
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
