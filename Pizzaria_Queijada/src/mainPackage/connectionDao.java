@@ -26,7 +26,7 @@ public class connectionDao {
         try {
             Class.forName("org.postgresql.Driver");
             Connection con = DriverManager.getConnection("jdbc:postgresql://" + host + ":" + port + "/" + db_name + "", "" + username + "", "" + password + "");
-            System.out.println("Estou conectado no banco de dados!!!");
+            System.out.println("Sistema conectado ao banco de dados!!!");
 
             //
             //
@@ -34,16 +34,16 @@ public class connectionDao {
 
             //fazer um if global, perguntar se é funcionario ou cliente
             //
-            System.out.println("MATRICULA PARA AUTENTICAR"); //verificando se o usuário existe
+            System.out.println("\n"+"Digite a Matricula:"); //verificando se o usuário existe
             int matriculaAuthenticar = sc.nextInt();
 
             String SQL_matricula = "SELECT * FROM funcionario WHERE matricula='" + matriculaAuthenticar + "'";
             ResultSet matriculaAuthenticator = stmt.executeQuery(SQL_matricula);
 
             if (matriculaAuthenticator.next()) {
-                System.out.println("MATRICULA VALIDA");
+                System.out.println("\n"+"Matricula Confirmada!");
 
-                System.out.println("SENHA PARA AUTENTICAR"); //verificando se a senha esta correta
+                System.out.println("\n"+"Digite sua senha:"); //verificando se a senha esta correta
                 String SenhaAuthenticar = sc.next();
     
                 String SQL_Senha = "SELECT * FROM funcionario WHERE matricula='" + matriculaAuthenticar + 
@@ -51,36 +51,38 @@ public class connectionDao {
                 ResultSet SenhaAuthenticator = stmt.executeQuery(SQL_Senha);
 
                     if (SenhaAuthenticator.next()) {
-                        System.out.println("SENHA VALIDA");
-                        System.out.println("\n"+"Ben-vindo ao Sistema"+"\n");
+                        System.out.println("\n"+"Senha Confirmada!");
+                        System.out.println("\n"+" ======== Bem-vindo ao Sistema ========");
+                        System.out.println(" ======== Pizzaria Queijada ========"+"\n");
                         System.out.println(
-                                "Escolha uma opção abaixo:\n"
-                                + " ======== Funcionalidades de Funcionários ===== \n"
+                                "Escolha uma opcao abaixo:\n"+"\n"
+                                + " ======== Funcionalidades de Funcionarios ===== \n"
                                 + "1 - Registrar \n" //Adicionar F
                                 + "2 - Atualizar \n" //Editar F
-                                + "3-  Realizar Pedido \n\n"
+                                + "3 - Apagar \n "// Apagar F
+                                + "\n ======== Funcionalidades de Cliente ===== \n"
+                                + "4-  Realizar Pedido \n\n"
                                 + " ======== Funcionalidades de APAGAR ===== \n"
-                                + "4 - Apagar Clientes \n"
-                                + "5 - Apagar Produtos \n"
-                                + "6 - Apagar Pedidos \n"
-                                + "7 - Apagar Funcionários \n "// Apagar F
+                                + "5 - Apagar Clientes \n"
+                                + "6 - Apagar Produtos \n"
+                                + "7 - Apagar Pedidos \n"
                                 + "\n ======== Sair do Sistema ===== \n"
                                 + "99 - Log-out (Sair do Sistema) \n "
                         );
                         int oqf = oqfazer.nextInt();
                         if (oqf == 1) {
-                            System.out.println("Vamos Registrar \n");
+                            System.out.println("\n"+"Vamos Registrar um novo Funcionario! \n");
 
-                            System.out.println("Digite sua MATRICULA");
+                            System.out.println("Digite a Matricula:");
                             fc.setMatricula(sc.nextInt());
 
-                            System.out.println("Digite seu NOME");
+                            System.out.println("Digite o Nome:");
                             fc.setNome(sc.next());
 
-                            System.out.println("Digite seu ENDERECO");
+                            System.out.println("Digite o Endereco:");
                             fc.setEndereco(sc.next());
 
-                            System.out.println("Digite sua SENHA");
+                            System.out.println("Digite a Senha:");
                             fc.setSenha(sc.next());
 
                             daoControllerMetodos VrController = new daoControllerMetodos();
@@ -91,17 +93,17 @@ public class connectionDao {
         //   update atualizar
         //
                         if (oqf == 2) {
-                            System.out.println("Vamos ATUALIZAR \n");
-                            System.out.println("Digite sua MATRICULA");
+                            System.out.println("Vamos Atualizar os dados do Funcionario! \n");
+                            System.out.println("Digite uma Matricula Existente");
                             fc.setMatricula(sc.nextInt());
 
-                            System.out.println("Digite seu NOME");
+                            System.out.println("Atualize o Nome:");
                             fc.setNome(sc.next());
 
-                            System.out.println("Digite seu ENDERECO");
+                            System.out.println("Atualize o Endereco:");
                             fc.setEndereco(sc.next());
 
-                            System.out.println("Digite sua SENHA");
+                            System.out.println("Atualize a Senha:");
                             fc.setSenha(sc.next());
 
                             daoControllerMetodos VrController = new daoControllerMetodos();
@@ -111,7 +113,7 @@ public class connectionDao {
         //
         //
         //   Fazer pedido pedido
-                        if (oqf == 3) {
+                        if (oqf == 4) {
                             System.out.println("\nREALIZAR PEDIDO: Os produtos disponiveis abaixo:");
 
                             System.out.println( //passar o if pelo número do pedido
@@ -237,9 +239,9 @@ public class connectionDao {
         //
         //   Apagando Funcionario
         //
-                        if (oqf == 7) {
-                            System.out.println("Vamos APAGAR \n");
-                            System.out.println("Digite A MATRICULA do FUNCIONADO que vai ser apagado");
+                        if (oqf == 3) {
+                            System.out.println("Vamos apagar o Funcionario! \n");
+                            System.out.println("Digite a Matricula do Funcionario que vai ser apagado");
                             fc.setMatricula(sc.nextInt());
                             daoControllerMetodos VrController = new daoControllerMetodos();
                             VrController.deleteFuncionario(fc);
@@ -251,13 +253,13 @@ public class connectionDao {
                         }
 
                     } else {
-                        System.out.println("SENHA INVALIDA");
+                        System.out.println("\n"+"Senha Invalida."+"\n");
                     }
                 }else{
-                    System.out.println("MATRICULA INVALIDA");
+                    System.out.println("\n"+"Matricula Invalida."+"\n");
                 }
             con.close();
-            System.out.println("Conexão encerrada!");
+            System.out.println("Conexao encerrada!");
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
         }
