@@ -1,25 +1,55 @@
-# Pizzaria Queijada
+<h1 align="center">
+	🍕 Pizzaria Queijada
+</h1> 
 
-## Sobre
+## 📚 Sobre
 
 Trabalho de Programação II - 2021.1.
 
 A pizzaria Queijada está querendo informatizar o seu sistema de pedidos. Seguindo as demandas do proprietário
 
-## Demandas
+## 💻 Telas
+<p align="center">
+<img src=https://github.com/isobrrj/Pizzaria_queijada/blob/main/images/sendGit.png/>
+</p>
 
-<img src="images/R01.png" width="600">
+## O desafio 
+<p>
+Todas as informações requsitadas para o desenvolvimento do projeto
+</p>
 
-## Tecnologias
+- [Projeto](https://github.com/isobrrj/Pizzaria_queijada/blob/main/Pizzaria%20Queijada.pdf) pdf
 
-Java
 
-## Status
+<p>&nbsp;&nbsp;</p>
 
-Projeto em Desenvolvimento.
+---
+
+## 🚀 Tecnologias
+
+
+- ☕ Java
+- 🐘 PostgreSQL
+
+<p>&nbsp;&nbsp;</p>
+
+
+# Executar o projeto
+``` 
+- Implementar o jar do PostgreSQL dentro do projeto
+- Verifique a porta, configurações do banco antes de rodar o projeto
+- Para rodar o projeto, navegue até mainPackage e execute o connectionDao
+```
+- [connectionDao](https://github.com/isobrrj/Pizzaria_queijada/blob/main/Pizzaria_Queijada/src/mainPackage/connectionDao.java) executa todo o projeto sem precisar de nenhum outro arquivo
+
+- [connectionFactory](https://github.com/isobrrj/Pizzaria_queijada/blob/main/Pizzaria_Queijada/src/mainPackage/connectionFactory.java)  O banco precisa ficar com a mesma configuração no connectionDao no connectionFactory
+
+
+## ⌛ Status
+
+<p> O projeto encontra-se em desenvolvimento.
+</p>
 
 ## Desenvolvedores
 
-[Marcílio Júnior](https://github.com/MJr0019), 
-
-[Igor Soares](https://github.com/isobrrj)
+👦 [Marcílio Júnior](https://github.com/MJr0019), 👦 [Igor Soares](https://github.com/isobrrj)
