@@ -324,16 +324,18 @@ public class daoControllerMetodos {
         }
     }
 
-    public void AtualizarPedido(Pedido pedido) {
+    public void AtualizarPedido(Pedido pedido, LocalDate lD) {
         String sql = "update pedido set codigo_cliente = ?, codigo_funcionario = ?, codigo_funcionario = ?, data_pedido = ?, valor_total= ?, where codigo_pedido = ?";
-
+         
+        LocalDate localDate = lD;
+        
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
 
             stmt.setInt(1, pedido.getCodigoPedido());
             stmt.setInt(2, pedido.getCodigoCliente());
             stmt.setDouble(3, pedido.getCodigoFuncionario());
-//            stmt.setDouble(4, pedido.getDataPedido());
+            stmt.setObject(4, localDate);
             stmt.setDouble(5, pedido.getValorTotal());
 
             System.out.println("\n" + "Dados do pedido atualizados com sucesso!" + "\n");
