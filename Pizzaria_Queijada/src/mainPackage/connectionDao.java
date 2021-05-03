@@ -317,7 +317,7 @@ public class connectionDao {
                     //   resgistrar Pedido CadastrarPedido
                     //
                     if (oqf == 10) {
-                        System.out.println("Vamos cadastrar os pedidos! \n");
+                        System.out.println("Vamos cadastrar os produto! \n");
 
                         System.out.println("Informe um código para o produto");
                         pd.setCodigoPedido(sc.nextInt());
@@ -330,10 +330,23 @@ public class connectionDao {
                         //
                         //
 
+                        //passando a data pro usuário
 //stmt.setDouble(4, pedido.getDataPedido());
+                        int x, y, z;
+                        System.out.println("Digite o ano de nascimento do funcionario: ");
+                        x = sc.nextInt();
+                        System.out.println("Digite o mes de nascimento do funcionario: ");
+                        y = sc.nextInt();
+                        System.out.println("Digite o dia de nascimento do funcionario: ");
+                        z = sc.nextInt();
+
+                        LocalDate lD = LocalDate.of(x, y, z);
+
+//
+//
 //            stmt.setDouble(5, pedido.getValorTotal());
                         daoControllerMetodos VrController = new daoControllerMetodos();
-                        VrController.CadastrarPedido(pt);
+                        VrController.CadastrarPedido(pt, lD);
                     }
 
                     //

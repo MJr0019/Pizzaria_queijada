@@ -297,17 +297,18 @@ public class daoControllerMetodos {
     //
     // pedido
     //
-    public void CadastrarPedido(Pedido pedido) {
+    public void CadastrarPedido(Pedido pedido, LocalDate lD) {
         String sql = "insert into produto (codigo_pedido, codigo_cliente, codigo_funcionario, data_pedido, valor_total) values (?,?,?,?,?)";
 
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
+            LocalDate localDate = lD;
 
 //push nos campos de Funcionario
             stmt.setInt(1, pedido.getCodigoPedido());
             stmt.setInt(2, pedido.getCodigoCliente());
             stmt.setDouble(3, pedido.getCodigoFuncionario());
-//            stmt.setDouble(4, pedido.getDataPedido());
+            stmt.setObject(4, localDate);
             stmt.setDouble(5, pedido.getValorTotal());
 
             System.out.println("\nProduto cadastrado com sucesso\n");
