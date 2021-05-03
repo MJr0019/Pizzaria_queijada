@@ -20,13 +20,13 @@ public class daoControllerMetodos {
         this.con = new connectionFactory().getConnection();
     }
 
+    //Gravar funcionario
     public void gravar(Funcionario funcionario) {
         String sql = "insert into funcionario (matricula, nome, endereco, senha) values (?,?,?,?)";
 
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
 
-            //push nos campos de Funcionario
             stmt.setInt(1, funcionario.getMatricula());
             stmt.setString(2, funcionario.getNome());
             stmt.setString(3, funcionario.getEndereco());
@@ -44,7 +44,7 @@ public class daoControllerMetodos {
         }
     }
 
-    // new method editar
+    //atualizar funcionario
     public void update(Funcionario Funcionario) {
         String sql = "update funcionario set nome = ?, endereco = ?, senha = ? where matricula = ? ";
 
@@ -67,6 +67,7 @@ public class daoControllerMetodos {
         }
     }
 
+    //deletar funcionario
     public void deleteFuncionario(Funcionario funcionario) {
         String sql = "delete from funcionario where matricula = ?";
 
@@ -86,11 +87,7 @@ public class daoControllerMetodos {
         }
     }
 
-    //
-    //
-    // Declarando pedido
-    //
-    //
+    //realizar o pedido
     public void RealizarPedido(Pedido pedido, LocalDate lD) {
         String sql = "insert into pedido (codigo_pedido, codigo_cliente, codigo_funcionario, data_pedido, valor_total) values (?,?,?,?,?)";
 
@@ -99,14 +96,13 @@ public class daoControllerMetodos {
             //LocalDate localDate = LocalDate.now();
             LocalDate localDate = lD;
 
-//push nos campos de Funcionario
             stmt.setInt(1, pedido.getCodigoPedido());
             stmt.setInt(2, pedido.getCodigoCliente());
             stmt.setInt(3, pedido.getCodigoFuncionario());
             stmt.setObject(4, localDate); //pegando a data
             stmt.setInt(5, pedido.getValorTotal());
 
-            System.out.println("Pedido REALIZADO COM SUCESSO");
+            System.out.println("Pedido realizado com sucesso!!");
 
             stmt.execute();
             stmt.close();
@@ -119,11 +115,7 @@ public class daoControllerMetodos {
         }
     }
 
-    //
-    //
-    //deletar pedido
-    //
-    //
+    //deletar o pedido
     public void ApagarPedido(Pedido pedido) {
         String sql = "delete from pedido where codigo_pedido = ?";
 
@@ -143,18 +135,13 @@ public class daoControllerMetodos {
         }
     }
 
-    //
-    //
-    //Cadastrando cliente
-    //
-    //
+    //cadastrar cliente
     public void CadastrarCliente(Cliente cliente) {
         String sql = "insert into cliente (codigo_cliente, nome, endereco, tel) values (?,?,?,?)";
 
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
 
-//push nos campos de Funcionario
             stmt.setInt(1, cliente.getCodigoCliente());
             stmt.setString(2, cliente.getNome());
             stmt.setString(3, cliente.getEndereco());
@@ -173,16 +160,13 @@ public class daoControllerMetodos {
         }
     }
 
-    //apagar cliente
-    //
-    //
+    //deletar cliente
     public void ApagarCliente(Cliente cliente) {
         String sql = "delete from cliente where codigo_cliente =?";
 
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
 
-//push nos campos de Funcionario
             stmt.setInt(1, cliente.getCodigoCliente());
 
             System.out.println("\nCliente pagado com sucesso\n");
@@ -197,12 +181,8 @@ public class daoControllerMetodos {
             throw new RuntimeException(e);
         }
     }
-    //
-    //
-    //Atualizar cliente
-    //
-    //
 
+    //atualizar cliente
     public void AtualizarCliente(Cliente cliente) {
         String sql = "update cliente set nome = ?, endereco = ?, tel = ? where codigo_cliente = ? ";
 
@@ -225,18 +205,13 @@ public class daoControllerMetodos {
         }
     }
 
-    //
-    //
-    //Cadastrar produto
-    //
-    //
+    //cadastrar produto
     public void CadastrarProduto(Produto produto) {
         String sql = "insert into produto (codigo_produto, nome, preco_unitario) values (?,?,?)";
 
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
 
-//push nos campos de Funcionario
             stmt.setInt(1, produto.getCodigoProduto());
             stmt.setString(2, produto.getNome());
             stmt.setDouble(3, produto.getPrecoUnitario());
@@ -254,6 +229,7 @@ public class daoControllerMetodos {
         }
     }
 
+    //atualizar produto
     public void AtualizarProduto(Produto produto) {
         String sql = "update produto set nome = ?, preco_unitario = ? where codigo_produto = ? ";
 
@@ -275,6 +251,7 @@ public class daoControllerMetodos {
         }
     }
 
+    //deletar produto
     public void deletarProduto(Produto produto) {
         String sql = "delete from produto where codigo_produto =?";
 
@@ -294,9 +271,7 @@ public class daoControllerMetodos {
         }
     }
 
-    //
-    // pedido
-    //
+    //cadastrar pedido
     public void CadastrarPedido(Pedido pedido, LocalDate lD) {
         String sql = "insert into pedido (codigo_pedido, codigo_cliente, codigo_funcionario, data_pedido, valor_total) values (?,?,?,?,?)";
 
@@ -304,14 +279,13 @@ public class daoControllerMetodos {
             PreparedStatement stmt = con.prepareStatement(sql);
             LocalDate localDate = lD;
 
-//push nos campos de Funcionario
             stmt.setInt(1, pedido.getCodigoPedido());
             stmt.setInt(2, pedido.getCodigoCliente());
             stmt.setDouble(3, pedido.getCodigoFuncionario());
             stmt.setObject(4, localDate);
             stmt.setDouble(5, pedido.getValorTotal());
 
-            System.out.println("\nProduto cadastrado com sucesso\n");
+            System.out.println("\nPedido cadastrado com sucesso\n");
 
             stmt.execute();
             stmt.close();
@@ -324,6 +298,7 @@ public class daoControllerMetodos {
         }
     }
 
+    //atualizar pedido
     public void AtualizarPedido(Pedido pedido, LocalDate lD) {
         String sql = "update pedido set codigo_cliente = ?, codigo_funcionario = ?, data_pedido = ?, valor_total= ? where codigo_pedido = ?";
 
@@ -338,7 +313,7 @@ public class daoControllerMetodos {
             stmt.setObject(3, localDate);
             stmt.setDouble(4, pedido.getValorTotal());
 
-            System.out.println("\n" + "Dados do pedido atualizados com sucesso!" + "\n");
+            System.out.println("\n" + "Pedido atualizado com sucesso!" + "\n");
 
             stmt.execute();
             stmt.close();
