@@ -30,6 +30,4 @@ A pizzaria Queijada está querendo informatizar o seu sistema de pedidos. Seguin
 
 ## Desenvolvedores
 
-[Marcílio Júnior](https://github.com/MJr0019), 
-
-[Igor Soares](https://github.com/isobrrj)
+👦 [Marcílio Júnior](https://github.com/MJr0019), 👦 [Igor Soares](https://github.com/isobrrj)
