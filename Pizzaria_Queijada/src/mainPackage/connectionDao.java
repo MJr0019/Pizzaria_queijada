@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.Scanner;
+import produtoPackage.Produto;
+import pedidoPackage.Pedido;
 
 public class connectionDao {
 
@@ -26,6 +28,8 @@ public class connectionDao {
         Scanner cardapio = new Scanner(System.in);
         Funcionario fc = new Funcionario();
         Cliente cl = new Cliente();
+        Produto pt = new Produto();
+        Pedido pd = new Pedido();
 
         try {
             Class.forName("org.postgresql.Driver");
@@ -67,10 +71,12 @@ public class connectionDao {
                             + "\n ======== Funcionalidades de Cliente ===== \n"
                             + "4 - Registrar \n" //Adicionar Cliente
                             + "5 - Apagar \n"
-                            + "6-  Realizar Pedido. \n"
+                            + "6 - Atualizar"
+                            + "7-  Realizar Pedido. \n"
                             + "\n  ======== Funcionalidades de APAGAR ===== \n"
-                            + "7 - Apagar Produtos \n"
-                            + "8 - Apagar Pedidos \n"
+                            + "8 - Atualizar Produtos \n"
+                            + "9 - Apagar Produtos \n"
+                            + "10 - Apagar Pedidos \n"
                             + "\n ======== Sair do Sistema ===== \n"
                             + "99 - Log-out (Sair do Sistema) \n "
                     );
@@ -115,19 +121,16 @@ public class connectionDao {
                         daoControllerMetodos VrController = new daoControllerMetodos();
                         VrController.update(fc);
                     }
-                    
-                    
-                    
+
                     if (oqf == 3) {
-                        System.out.println("\n" +"Vamos apagar o Funcionario! \n");
+                        System.out.println("\n" + "Vamos apagar o Funcionario! \n");
                         System.out.println("Digite a Matricula do Funcionario que vai ser apagado:");
                         fc.setMatricula(sc.nextInt());
                         daoControllerMetodos VrController = new daoControllerMetodos();
                         VrController.deleteFuncionario(fc);
                     }
 
-                                        
-                     //
+                    //
                     //
                     //Cadastrar cliente
                     //
@@ -149,8 +152,7 @@ public class connectionDao {
                         daoControllerMetodos VrController = new daoControllerMetodos();
                         VrController.CadastrarCliente(cl);
                     }
-                    
-                    
+
                     if (oqf == 5) {
                         System.out.println("Vamos apagar o cliente! \n");
                         System.out.println("Informe o codigo do cliente");
@@ -160,29 +162,48 @@ public class connectionDao {
                         daoControllerMetodos VrController = new daoControllerMetodos();
                         VrController.ApagarCliente(cl);
                     }
-
                     //
+                    //
+                    //   Atualziar cliente
+                    //
+                    if (oqf == 6) {
+                        System.out.println("Vamos Atualizar o cliente! \n");
+                        System.out.println("Informe um código para o cliente");
+                        cl.setCodigoCliente(sc.nextInt());
+                        //
+                        System.out.println("Informe o nome do cliente");
+                        cl.setNome(sc.next());
+                        //
+                        System.out.println("Informe o endereço do cliente");
+                        cl.setEndereco(sc.next());
+                        //
+                        System.out.println("Informe o telefone do cliente");
+                        cl.setTel(sc.next());
+
+                        daoControllerMetodos VrController = new daoControllerMetodos();
+                        VrController.AtualizarCliente(cl);
+                    }
                     //
                     //   Fazer pedido pedido
-                    if (oqf == 6) {
-                        
-                            Math.random();
-                            int pedido = (int) (Math.random() * 2000);
+                    if (oqf == 7) {
 
-                            fc.setCodigoPedido(pedido); // Número do Pedido
-                            
-                            System.out.println("Digite o Codigo do cliente");
-                            fc.setCodigoCliente(sc.nextInt()); // Código do Clinete
-                            
-                            fc.setCodigoFuncionario(matriculaAuthenticar); // Matricula do Funcionario logado.
-                            
-                            LocalDate lD = LocalDate.now(); // Data dinamica no B.D
-                            
-                            int ValorDoProdutoTotal = 0;
-                            
-                            System.out.println("\nREALIZAR PEDIDO: Os produtos disponiveis abaixo:");
+                        Math.random();
+                        int pedido = (int) (Math.random() * 2000);
 
-                            System.out.println( //passar o if pelo número do pedido
+                        fc.setCodigoPedido(pedido); // Número do Pedido
+
+                        System.out.println("Digite o Codigo do cliente");
+                        fc.setCodigoCliente(sc.nextInt()); // Código do Clinete
+
+                        fc.setCodigoFuncionario(matriculaAuthenticar); // Matricula do Funcionario logado.
+
+                        LocalDate lD = LocalDate.now(); // Data dinamica no B.D
+
+                        int ValorDoProdutoTotal = 0;
+
+                        System.out.println("\nREALIZAR PEDIDO: Os produtos disponiveis abaixo:");
+
+                        System.out.println( //passar o if pelo número do pedido
                                 "Escolha uma opcao abaixo: EX: 1001 ou 1002 ...\n"
                                 + "(1001)   -   Pizza Muçarela              R$:5.00\n"
                                 + "(1002)   -   Pizza Calabresa             R$:6.00\n"
@@ -192,35 +213,167 @@ public class connectionDao {
                                 + "(1006)   -   Mini pudim                  R$:3.50\n"
                                 + "(1007)   -   Brigadeiro                  R$:2.50\n "
                         );
-                            
-                            
-                         int cp = cardapio.nextInt();   
-                         
-                            if (cp == 1001) {
-                                
-                                ValorDoProdutoTotal = 5;
-                                  
-                            }
-                            
-                            if (cp == 1002) {
-                                
-                                ValorDoProdutoTotal = 6;
-                                  
-                            }
-                           
-                                  fc.setValorTotal(ValorDoProdutoTotal);
 
+                        int cp = cardapio.nextInt();
 
-                            daoControllerMetodos VrController = new daoControllerMetodos();
-                            VrController.RealizarPedido(fc, lD);
+                        if (cp == 1001) {
+
+                            ValorDoProdutoTotal = 5;
+
                         }
 
-                    //
-                    //   Apagando Funcionario
-                    //
+                        if (cp == 1002) {
 
+                            ValorDoProdutoTotal = 6;
+
+                        }
+                        if (cp == 1003) {
+
+                            ValorDoProdutoTotal = 6;
+
+                        }
+                        if (cp == 1004) {
+
+                            ValorDoProdutoTotal = 8;
+
+                        }
+                        if (cp == 1005) {
+
+                            ValorDoProdutoTotal = 7;
+
+                        }
+                        if (cp == 1006) {
+
+                            double change = 3.50;
+                            ValorDoProdutoTotal = (int) change;
+
+                        }
+                        if (cp == 1007) {
+                            double change = 3.50;
+                            ValorDoProdutoTotal = (int) change;
+
+                        }
+
+                        fc.setValorTotal(ValorDoProdutoTotal);
+
+                        daoControllerMetodos VrController = new daoControllerMetodos();
+                        VrController.RealizarPedido(fc, lD);
+                    }
+                    //
+                    //   registrar Produto
+                    //
                     if (oqf == 8) {
-                        System.out.println("\n"+"Vamos apagar o Pedido! \n");
+                        System.out.println("Vamos registrar o produto! \n");
+
+                        System.out.println("Informe um código para o produto");
+                        pt.setCodigoProduto(sc.nextInt());
+                        //
+                        System.out.println("Informe o nome do produto");
+                        pt.setNome(sc.next());
+                        //
+                        System.out.println("Informe o preco Unitario");
+                        pt.setPrecoUnitario(sc.nextDouble());
+                        //
+
+                        daoControllerMetodos VrController = new daoControllerMetodos();
+                        VrController.CadastrarProduto(pt);
+                    }
+
+                    //
+                    //   Atualizar Produto
+                    //
+                    if (oqf == 9) {
+                        System.out.println("Vamos Atualizar o produto! \n");
+
+                        System.out.println("Informe um código do produto");
+                        pt.setCodigoProduto(sc.nextInt());
+                        //
+                        System.out.println("Informe o nome do produto");
+                        pt.setNome(sc.next());
+                        //
+                        System.out.println("Informe o preco Unitario");
+                        pt.setPrecoUnitario(sc.nextDouble());
+                        //
+
+                        daoControllerMetodos VrController = new daoControllerMetodos();
+                        VrController.AtualizarProduto(pt);
+                    }
+
+                    //
+                    //  Apagar produto
+                    //
+                    if (oqf == 9) {
+                        System.out.println("Vamos deletar o produto! \n");
+
+                        System.out.println("Informe um código do produto");
+                        pt.setCodigoProduto(sc.nextInt());
+                        //
+
+                        daoControllerMetodos VrController = new daoControllerMetodos();
+                        VrController.deletarProduto(pt);
+                    }
+///////////////////////////////////////////////////////////////////////////////////
+                    //
+                    //   resgistrar Pedido CadastrarPedido
+                    //
+                    if (oqf == 10) {
+                        System.out.println("Vamos cadastrar os produto! \n");
+
+                        System.out.println("Informe um código para o produto");
+                        pd.setCodigoPedido(sc.nextInt());
+                        //
+                        System.out.println("Informe o codigo do cliente");
+                        pd.setCodigoCliente(sc.nextInt());
+                        //
+                        System.out.println("Informe o codigo do Funcionario");
+                        pd.setCodigoFuncionario(sc.nextInt());
+                        //
+                        //
+
+                        //passando a data pro usuário
+//stmt.setDouble(4, pedido.getDataPedido());
+                        int x, y, z;
+                        System.out.println("Digite o ano de nascimento do funcionario: ");
+                        x = sc.nextInt();
+                        System.out.println("Digite o mes de nascimento do funcionario: ");
+                        y = sc.nextInt();
+                        System.out.println("Digite o dia de nascimento do funcionario: ");
+                        z = sc.nextInt();
+
+                        LocalDate lD = LocalDate.of(x, y, z);
+
+//
+//
+//            stmt.setDouble(5, pedido.getValorTotal());
+                        daoControllerMetodos VrController = new daoControllerMetodos();
+                        VrController.CadastrarPedido(pt, lD);
+                    }
+
+                    //
+                    //   atualizar Pedido
+                    //
+                    if (oqf == 9) {
+                        System.out.println("Vamos Atualizar o pedido! \n");
+
+                        System.out.println("Informe um código do pedido");
+                        pd.setCodigoPedido(sc.nextInt());
+                        //
+                        System.out.println("Informe o codigo do cliente");
+                        pd.setCodigoCliente(sc.nextInt());
+                        //
+                        System.out.println("Informe o codigo do funcionario");
+                        pd.setCodigoFuncionario(sc.nextInt());
+                        //
+//stmt.setDouble(4, pedido.getDataPedido());
+//            stmt.setDouble(5, pedido.getValorTotal());
+                        daoControllerMetodos VrController = new daoControllerMetodos();
+                        VrController.AtualizarPedido(pt);
+                    }
+
+                    //
+                    //
+                    if (oqf == 12) {
+                        System.out.println("\n" + "Vamos apagar o Pedido! \n");
                         System.out.println("Digite o codigo do pedido que vai ser apagado:");
                         fc.setCodigoPedido(sc.nextInt());
                         daoControllerMetodos VrController = new daoControllerMetodos();
