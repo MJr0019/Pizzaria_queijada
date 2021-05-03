@@ -84,9 +84,8 @@ public class connectionDao {
                             + "0 - Log-out (Sair do Sistema) \n "
                     );
                     int oqf = oqfazer.nextInt();
-                    
+
                     // Funcionario //
-                    
                     if (oqf == 1) {
                         System.out.println("\n" + "Vamos Registrar um novo Funcionario! \n");
 
@@ -132,9 +131,8 @@ public class connectionDao {
                         daoControllerMetodos VrController = new daoControllerMetodos();
                         VrController.deleteFuncionario(fc);
                     }
-                    
+
                     //Cliente //
-                    
                     if (oqf == 4) {
                         System.out.println("Vamos Registrar um novo Cliente! \n");
                         System.out.println("Digite o codigo do novo cliente:");
@@ -173,7 +171,7 @@ public class connectionDao {
                         daoControllerMetodos VrController = new daoControllerMetodos();
                         VrController.AtualizarCliente(cl);
                     }
-                    
+
                     if (oqf == 6) {
                         System.out.println("Vamos apagar o cliente! \n");
                         System.out.println("Informe o codigo do cliente");
@@ -183,7 +181,7 @@ public class connectionDao {
                         daoControllerMetodos VrController = new daoControllerMetodos();
                         VrController.ApagarCliente(cl);
                     }
-                                        
+
                     //
                     //   Fazer pedido pedido
                     if (oqf == 7) {
@@ -306,21 +304,20 @@ public class connectionDao {
                     if (oqf == 10) {
                         System.out.println("Vamos deletar o produto! \n");
 
-                        System.out.println("Informe um código do produto");
+                        System.out.println("Informe um código de produto");
                         pt.setCodigoProduto(sc.nextInt());
                         //
 
                         daoControllerMetodos VrController = new daoControllerMetodos();
                         VrController.deletarProduto(pt);
                     }
-///////////////////////////////////////////////////////////////////////////////////
                     //
-                    //   resgistrar Pedido CadastrarPedido
+                    //   resgistrar Pedido
                     //
                     if (oqf == 11) {
-                        System.out.println("Vamos cadastrar os produto! \n");
+                        System.out.println("Vamos cadastrar os pedido! \n");
 
-                        System.out.println("Informe um código para o produto");
+                        System.out.println("Informe um código para o pedido");
                         pd.setCodigoPedido(sc.nextInt());
                         //
                         System.out.println("Informe o codigo do cliente");
@@ -329,23 +326,19 @@ public class connectionDao {
                         System.out.println("Informe o codigo do Funcionario");
                         pd.setCodigoFuncionario(sc.nextInt());
                         //
-                        //
+                        System.out.println("Valor do pedido");
+                        pd.setValorTotal(sc.nextInt());
 
-                        //passando a data pro usuário
-//stmt.setDouble(4, pedido.getDataPedido());
                         int x, y, z;
-                        System.out.println("Digite o ano de nascimento do funcionario: ");
+                        System.out.println("Digite o ano de cadastro do pedido: ");
                         x = sc.nextInt();
-                        System.out.println("Digite o mes de nascimento do funcionario: ");
+                        System.out.println("Digite o mes de cadastro do pedido: ");
                         y = sc.nextInt();
-                        System.out.println("Digite o dia de nascimento do funcionario: ");
+                        System.out.println("Digite o dia de cadastro do pedido: ");
                         z = sc.nextInt();
 
                         LocalDate lD = LocalDate.of(x, y, z);
 
-//
-//
-//            stmt.setDouble(5, pedido.getValorTotal());
                         daoControllerMetodos VrController = new daoControllerMetodos();
                         VrController.CadastrarPedido(pt, lD);
                     }
@@ -356,7 +349,7 @@ public class connectionDao {
                     if (oqf == 12) {
                         System.out.println("Vamos Atualizar o pedido! \n");
 
-                        System.out.println("Informe um código do pedido");
+                        System.out.println("Informe o  código do pedido");
                         pd.setCodigoPedido(sc.nextInt());
                         //
                         System.out.println("Informe o codigo do cliente");
@@ -365,23 +358,21 @@ public class connectionDao {
                         System.out.println("Informe o codigo do funcionario");
                         pd.setCodigoFuncionario(sc.nextInt());
                         //
+                        System.out.println("Valor do pedido");
+                        pd.setValorTotal(sc.nextInt());
 
                         int x, y, z;
-                        System.out.println("Digite o ano de nascimento do funcionario: ");
+                        System.out.println("Digite o ano de criacao do pedido: ");
                         x = sc.nextInt();
-                        System.out.println("Digite o mes de nascimento do funcionario: ");
+                        System.out.println("Digite o mes de criacao do pedido: ");
                         y = sc.nextInt();
-                        System.out.println("Digite o dia de nascimento do funcionario: ");
+                        System.out.println("Digite o dia de criacao do pedido: ");
                         z = sc.nextInt();
 
                         LocalDate lD = LocalDate.of(x, y, z);
-//            stmt.setDouble(5, pedido.getValorTotal());
                         daoControllerMetodos VrController = new daoControllerMetodos();
-                        VrController.AtualizarPedido(pt, lD);
+                        VrController.AtualizarPedido(pd, lD);
                     }
-
-                    //
-                    //
                     if (oqf == 13) {
                         System.out.println("\n" + "Vamos apagar o Pedido! \n");
                         System.out.println("Digite o codigo do pedido que vai ser apagado:");
@@ -389,12 +380,10 @@ public class connectionDao {
                         daoControllerMetodos VrController = new daoControllerMetodos();
                         VrController.ApagarPedido(fc);
                     }
-
                     if (oqf == 0) {
                         con.close();
                         System.out.println("\nLogoff Realizado! \n");
                     }
-
                 } else {
                     System.out.println("\n" + "Senha Invalida." + "\n");
                 }
