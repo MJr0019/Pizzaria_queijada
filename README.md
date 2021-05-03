@@ -1,6 +1,6 @@
-# Pizzaria Queijada
+# 🍕 Pizzaria Queijada
 
-## Sobre
+## 📚 Sobre
 
 Trabalho de Programação II - 2021.1.
 
@@ -13,13 +13,20 @@ A pizzaria Queijada está querendo informatizar o seu sistema de pedidos. Seguin
 
 <img src="images/R01.png" width="600">
 
-## Tecnologias
+<p>&nbsp;&nbsp;</p>
 
-Java
+---
 
-## Status
+## 🚀 Tecnologias
 
-Projeto em Desenvolvimento.
+- Java
+
+<p>&nbsp;&nbsp;</p>
+
+## ⌛ Status
+
+<p> O projeto encontra-se em desenvolvimento.
+</p>
 
 ## Desenvolvedores
 
