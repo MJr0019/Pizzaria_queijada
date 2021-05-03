@@ -24,7 +24,6 @@ public class connectionDao {
 
         Scanner sc = new Scanner(System.in);
         Scanner oqfazer = new Scanner(System.in);
-        Scanner np = new Scanner(System.in);
         Scanner cardapio = new Scanner(System.in);
         Funcionario fc = new Funcionario();
         Cliente cl = new Cliente();
@@ -34,7 +33,7 @@ public class connectionDao {
         try {
             Class.forName("org.postgresql.Driver");
             Connection con = DriverManager.getConnection("jdbc:postgresql://" + host + ":" + port + "/" + db_name + "", "" + username + "", "" + password + "");
-            System.out.println("Sistema conectado ao banco de dados!!!");
+            System.out.println("=== Sistema conectado ao banco de dados! ===");
 
             //
             //
@@ -65,22 +64,29 @@ public class connectionDao {
                     System.out.println(
                             "Escolha uma opcao abaixo:\n" + "\n"
                             + " ======== Funcionalidades de Funcionarios ===== \n"
-                            + "1 - Registrar \n" //Adicionar F
-                            + "2 - Atualizar \n" //Editar F
-                            + "3 - Apagar \n "// Apagar F
+                            + "1 - Registrar novo Funcionario\n"
+                            + "2 - Atualizar Funcionario\n" //Editar F
+                            + "3 - Apagar Funcionario\n "// Apagar F
                             + "\n ======== Funcionalidades de Cliente ===== \n"
-                            + "4 - Registrar \n" //Adicionar Cliente
-                            + "5 - Apagar \n"
-                            + "6 - Atualizar"
-                            + "7-  Realizar Pedido. \n"
-                            + "\n  ======== Funcionalidades de APAGAR ===== \n"
-                            + "8 - Atualizar Produtos \n"
-                            + "9 - Apagar Produtos \n"
-                            + "10 - Apagar Pedidos \n"
+                            + "4 - Registrar novo Cliente\n" //Adicionar Cliente
+                            + "5 - Atualizar Cliente\n" //Editar F
+                            + "6 - Apagar Cliente\n"
+                            + "7-  Realizar Pedido para Cliente. \n"
+                            + "\n ======== Funcionalidades de Produto ===== \n"
+                            + "8 - Registrar novo Produto\n" //Adicionar Cliente
+                            + "9 - Atualizar Produto\n" //Editar F
+                            + "10 - Apagar Produto\n"
+                            + "\n ======== Funcionalidades de Pedido ===== \n"
+                            + "11 - Registrar Pedido\n" //Adicionar Cliente
+                            + "12 - Atualizar Pedido\n" //Editar F
+                            + "13 - Apagar Pedido\n"
                             + "\n ======== Sair do Sistema ===== \n"
-                            + "99 - Log-out (Sair do Sistema) \n "
+                            + "0 - Log-out (Sair do Sistema) \n "
                     );
                     int oqf = oqfazer.nextInt();
+                    
+                    // Funcionario //
+                    
                     if (oqf == 1) {
                         System.out.println("\n" + "Vamos Registrar um novo Funcionario! \n");
 
@@ -101,9 +107,6 @@ public class connectionDao {
 
                     }
 
-                    //
-                    //   update atualizar
-                    //
                     if (oqf == 2) {
                         System.out.println("\n" + "Vamos Atualizar os dados do Funcionario! \n");
                         System.out.println("Digite uma Matricula Existente:");
@@ -129,44 +132,31 @@ public class connectionDao {
                         daoControllerMetodos VrController = new daoControllerMetodos();
                         VrController.deleteFuncionario(fc);
                     }
-
-                    //
-                    //
-                    //Cadastrar cliente
-                    //
-                    //
+                    
+                    //Cliente //
+                    
                     if (oqf == 4) {
-                        System.out.println("Vamos Cadastrar o cliente! \n");
-                        System.out.println("Informe um código para o cliente");
+                        System.out.println("Vamos Registrar um novo Cliente! \n");
+                        System.out.println("Digite o codigo do novo cliente:");
                         cl.setCodigoCliente(sc.nextInt());
                         //
-                        System.out.println("Informe o nome do cliente");
+                        System.out.println("Digite o nome do cliente:");
                         cl.setNome(sc.next());
                         //
-                        System.out.println("Informe o endereço do cliente");
+                        System.out.println("Digite o endereço do cliente:");
                         cl.setEndereco(sc.next());
                         //
-                        System.out.println("Informe o telefone do cliente");
+                        System.out.println("Digite o telefone do cliente:");
                         cl.setTel(sc.next());
 
                         daoControllerMetodos VrController = new daoControllerMetodos();
                         VrController.CadastrarCliente(cl);
                     }
-
-                    if (oqf == 5) {
-                        System.out.println("Vamos apagar o cliente! \n");
-                        System.out.println("Informe o codigo do cliente");
-                        cl.setCodigoCliente(sc.nextInt());
-                        //
-                        //
-                        daoControllerMetodos VrController = new daoControllerMetodos();
-                        VrController.ApagarCliente(cl);
-                    }
                     //
                     //
                     //   Atualziar cliente
                     //
-                    if (oqf == 6) {
+                    if (oqf == 5) {
                         System.out.println("Vamos Atualizar o cliente! \n");
                         System.out.println("Informe um código para o cliente");
                         cl.setCodigoCliente(sc.nextInt());
@@ -183,6 +173,17 @@ public class connectionDao {
                         daoControllerMetodos VrController = new daoControllerMetodos();
                         VrController.AtualizarCliente(cl);
                     }
+                    
+                    if (oqf == 6) {
+                        System.out.println("Vamos apagar o cliente! \n");
+                        System.out.println("Informe o codigo do cliente");
+                        cl.setCodigoCliente(sc.nextInt());
+                        //
+                        //
+                        daoControllerMetodos VrController = new daoControllerMetodos();
+                        VrController.ApagarCliente(cl);
+                    }
+                                        
                     //
                     //   Fazer pedido pedido
                     if (oqf == 7) {
@@ -302,7 +303,7 @@ public class connectionDao {
                     //
                     //  Apagar produto
                     //
-                    if (oqf == 9) {
+                    if (oqf == 10) {
                         System.out.println("Vamos deletar o produto! \n");
 
                         System.out.println("Informe um código do produto");
@@ -316,7 +317,7 @@ public class connectionDao {
                     //
                     //   resgistrar Pedido CadastrarPedido
                     //
-                    if (oqf == 10) {
+                    if (oqf == 11) {
                         System.out.println("Vamos cadastrar os produto! \n");
 
                         System.out.println("Informe um código para o produto");
@@ -352,7 +353,7 @@ public class connectionDao {
                     //
                     //   atualizar Pedido
                     //
-                    if (oqf == 9) {
+                    if (oqf == 12) {
                         System.out.println("Vamos Atualizar o pedido! \n");
 
                         System.out.println("Informe um código do pedido");
@@ -364,15 +365,24 @@ public class connectionDao {
                         System.out.println("Informe o codigo do funcionario");
                         pd.setCodigoFuncionario(sc.nextInt());
                         //
-//stmt.setDouble(4, pedido.getDataPedido());
+
+                        int x, y, z;
+                        System.out.println("Digite o ano de nascimento do funcionario: ");
+                        x = sc.nextInt();
+                        System.out.println("Digite o mes de nascimento do funcionario: ");
+                        y = sc.nextInt();
+                        System.out.println("Digite o dia de nascimento do funcionario: ");
+                        z = sc.nextInt();
+
+                        LocalDate lD = LocalDate.of(x, y, z);
 //            stmt.setDouble(5, pedido.getValorTotal());
                         daoControllerMetodos VrController = new daoControllerMetodos();
-                        VrController.AtualizarPedido(pt);
+                        VrController.AtualizarPedido(pt, lD);
                     }
 
                     //
                     //
-                    if (oqf == 12) {
+                    if (oqf == 13) {
                         System.out.println("\n" + "Vamos apagar o Pedido! \n");
                         System.out.println("Digite o codigo do pedido que vai ser apagado:");
                         fc.setCodigoPedido(sc.nextInt());
@@ -380,7 +390,7 @@ public class connectionDao {
                         VrController.ApagarPedido(fc);
                     }
 
-                    if (oqf == 99) {
+                    if (oqf == 0) {
                         con.close();
                         System.out.println("\nLogoff Realizado! \n");
                     }
