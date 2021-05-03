@@ -35,13 +35,9 @@ public class connectionDao {
             Connection con = DriverManager.getConnection("jdbc:postgresql://" + host + ":" + port + "/" + db_name + "", "" + username + "", "" + password + "");
             System.out.println("=== Sistema conectado ao banco de dados! ===");
 
-            //
-            //
             Statement stmt = con.createStatement();
 
-            //fazer um if global, perguntar se é funcionario ou cliente
-            //
-            System.out.println("\n" + "Digite a Matricula:"); //verificando se o usuário existe
+            System.out.println("\n" + "Digite a Matricula:");
             int matriculaAuthenticar = sc.nextInt();
 
             String SQL_matricula = "SELECT * FROM funcionario WHERE matricula='" + matriculaAuthenticar + "'";
@@ -50,7 +46,7 @@ public class connectionDao {
             if (matriculaAuthenticator.next()) {
                 System.out.println("\n" + "Matricula Confirmada!");
 
-                System.out.println("\n" + "Digite sua senha:"); //verificando se a senha esta correta
+                System.out.println("\n" + "Digite sua senha:");
                 String SenhaAuthenticar = sc.next();
 
                 String SQL_Senha = "SELECT * FROM funcionario WHERE matricula='" + matriculaAuthenticar
@@ -65,20 +61,20 @@ public class connectionDao {
                             "Escolha uma opcao abaixo:\n" + "\n"
                             + " ======== Funcionalidades de Funcionarios ===== \n"
                             + "1 - Registrar novo Funcionario\n"
-                            + "2 - Atualizar Funcionario\n" //Editar F
-                            + "3 - Apagar Funcionario\n "// Apagar F
+                            + "2 - Atualizar Funcionario\n"
+                            + "3 - Apagar Funcionario\n "
                             + "\n ======== Funcionalidades de Cliente ===== \n"
-                            + "4 - Registrar novo Cliente\n" //Adicionar Cliente
-                            + "5 - Atualizar Cliente\n" //Editar F
+                            + "4 - Registrar novo Cliente\n"
+                            + "5 - Atualizar Cliente\n"
                             + "6 - Apagar Cliente\n"
                             + "7-  Realizar Pedido para Cliente. \n"
                             + "\n ======== Funcionalidades de Produto ===== \n"
-                            + "8 - Registrar novo Produto\n" //Adicionar Cliente
-                            + "9 - Atualizar Produto\n" //Editar F
+                            + "8 - Registrar novo Produto\n"
+                            + "9 - Atualizar Produto\n"
                             + "10 - Apagar Produto\n"
                             + "\n ======== Funcionalidades de Pedido ===== \n"
-                            + "11 - Registrar Pedido\n" //Adicionar Cliente
-                            + "12 - Atualizar Pedido\n" //Editar F
+                            + "11 - Registrar Pedido\n"
+                            + "12 - Atualizar Pedido\n"
                             + "13 - Apagar Pedido\n"
                             + "\n ======== Sair do Sistema ===== \n"
                             + "0 - Log-out (Sair do Sistema) \n "
@@ -105,7 +101,7 @@ public class connectionDao {
                         VrController.gravar(fc);
 
                     }
-
+                    //Atualizar funcionario
                     if (oqf == 2) {
                         System.out.println("\n" + "Vamos Atualizar os dados do Funcionario! \n");
                         System.out.println("Digite uma Matricula Existente:");
@@ -123,7 +119,7 @@ public class connectionDao {
                         daoControllerMetodos VrController = new daoControllerMetodos();
                         VrController.update(fc);
                     }
-
+                    //Apagar funcionario
                     if (oqf == 3) {
                         System.out.println("\n" + "Vamos apagar o Funcionario! \n");
                         System.out.println("Digite a Matricula do Funcionario que vai ser apagado:");
@@ -132,7 +128,7 @@ public class connectionDao {
                         VrController.deleteFuncionario(fc);
                     }
 
-                    //Cliente //
+                    //Registrar novo Cliente //
                     if (oqf == 4) {
                         System.out.println("Vamos Registrar um novo Cliente! \n");
                         System.out.println("Digite o codigo do novo cliente:");
@@ -146,14 +142,11 @@ public class connectionDao {
                         //
                         System.out.println("Digite o telefone do cliente:");
                         cl.setTel(sc.next());
-
+                        //
                         daoControllerMetodos VrController = new daoControllerMetodos();
                         VrController.CadastrarCliente(cl);
                     }
-                    //
-                    //
                     //   Atualziar cliente
-                    //
                     if (oqf == 5) {
                         System.out.println("Vamos Atualizar o cliente! \n");
                         System.out.println("Informe um código para o cliente");
@@ -167,23 +160,20 @@ public class connectionDao {
                         //
                         System.out.println("Informe o telefone do cliente");
                         cl.setTel(sc.next());
-
+                        //
                         daoControllerMetodos VrController = new daoControllerMetodos();
                         VrController.AtualizarCliente(cl);
                     }
-
+                    // Apagar cliente
                     if (oqf == 6) {
                         System.out.println("Vamos apagar o cliente! \n");
                         System.out.println("Informe o codigo do cliente");
                         cl.setCodigoCliente(sc.nextInt());
                         //
-                        //
                         daoControllerMetodos VrController = new daoControllerMetodos();
                         VrController.ApagarCliente(cl);
                     }
-
-                    //
-                    //   Fazer pedido pedido
+                    //   Realizar pedido para Cliente
                     if (oqf == 7) {
 
                         Math.random();
@@ -192,7 +182,7 @@ public class connectionDao {
                         fc.setCodigoPedido(pedido); // Número do Pedido
 
                         System.out.println("Digite o Codigo do cliente");
-                        fc.setCodigoCliente(sc.nextInt()); // Código do Clinete
+                        fc.setCodigoCliente(sc.nextInt()); // Código do cliente
 
                         fc.setCodigoFuncionario(matriculaAuthenticar); // Matricula do Funcionario logado.
 
@@ -202,7 +192,7 @@ public class connectionDao {
 
                         System.out.println("\nREALIZAR PEDIDO: Os produtos disponiveis abaixo:");
 
-                        System.out.println( //passar o if pelo número do pedido
+                        System.out.println(
                                 "Escolha uma opcao abaixo: EX: 1001 ou 1002 ...\n"
                                 + "(1001)   -   Pizza Muçarela              R$:5.00\n"
                                 + "(1002)   -   Pizza Calabresa             R$:6.00\n"
@@ -258,9 +248,7 @@ public class connectionDao {
                         daoControllerMetodos VrController = new daoControllerMetodos();
                         VrController.RealizarPedido(fc, lD);
                     }
-                    //
-                    //   registrar Produto
-                    //
+                    //   registrar novo produto
                     if (oqf == 8) {
                         System.out.println("Vamos registrar o produto! \n");
 
@@ -277,10 +265,7 @@ public class connectionDao {
                         daoControllerMetodos VrController = new daoControllerMetodos();
                         VrController.CadastrarProduto(pt);
                     }
-
-                    //
                     //   Atualizar Produto
-                    //
                     if (oqf == 9) {
                         System.out.println("Vamos Atualizar o produto! \n");
 
@@ -297,10 +282,7 @@ public class connectionDao {
                         daoControllerMetodos VrController = new daoControllerMetodos();
                         VrController.AtualizarProduto(pt);
                     }
-
-                    //
                     //  Apagar produto
-                    //
                     if (oqf == 10) {
                         System.out.println("Vamos deletar o produto! \n");
 
@@ -311,9 +293,7 @@ public class connectionDao {
                         daoControllerMetodos VrController = new daoControllerMetodos();
                         VrController.deletarProduto(pt);
                     }
-                    //
                     //   resgistrar Pedido
-                    //
                     if (oqf == 11) {
                         System.out.println("Vamos cadastrar os pedido! \n");
 
@@ -342,10 +322,7 @@ public class connectionDao {
                         daoControllerMetodos VrController = new daoControllerMetodos();
                         VrController.CadastrarPedido(pt, lD);
                     }
-
-                    //
                     //   atualizar Pedido
-                    //
                     if (oqf == 12) {
                         System.out.println("Vamos Atualizar o pedido! \n");
 
