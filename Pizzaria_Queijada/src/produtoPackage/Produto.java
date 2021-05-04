@@ -33,4 +33,9 @@ public class Produto extends ItemDePedido {
     public void setPrecoUnitario(double precoUnitario) {
         this.precoUnitario = precoUnitario;
     }
+
+    @Override
+    public String toString() {
+        return "Produto [codigoProduto=" + codigoProduto + ", nome=" + nome + ", precoUnitario=" + precoUnitario + "]";
+    }
 }

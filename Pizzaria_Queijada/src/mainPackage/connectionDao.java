@@ -191,13 +191,16 @@ public class connectionDao {
                         int ValorDoProdutoTotal = 0;
 
                         System.out.println("\nREALIZAR PEDIDO: Os produtos disponiveis abaixo:");
-                        
-                        daoControllerMetodos VrController2 = new daoControllerMetodos();
-                            List<Produto> lt = VrController2.getCartapio();
-                                for (Produto produto : lt) {
-                                    System.out.println(produto);
-                                }
-                                
+
+                        daoControllerMetodos vvs = new daoControllerMetodos();
+                        List<Produto> lt = vvs.getCartapio();
+
+                        for (Produto produto : lt) {
+                            System.out.println(produto);
+                        }
+//
+//
+//
                         int cp = cardapio.nextInt();
 
                         if (cp == 1001) {

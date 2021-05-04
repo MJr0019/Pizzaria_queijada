@@ -13,8 +13,6 @@ import java.util.ArrayList;
 import pedidoPackage.Pedido;
 import produtoPackage.Produto;
 
-
-
 public class daoControllerMetodos {
 
     private Connection con;
@@ -299,25 +297,24 @@ public class daoControllerMetodos {
             throw new RuntimeException(e);
         }
     }
-    
-        public ArrayList<Produto> getCartapio() {
+
+    public ArrayList<Produto> getCartapio() {
         String sql = "select * from Produto order by codigo_produto";
-        
-        Produto prt = new Produto();
-        
+
         try {
             ArrayList<Produto> lista = new ArrayList();
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                Produto CTP = new Produto();
+
+                Produto prt = new Produto();
 
                 prt.setCodigoProduto(rs.getInt("codigo_produto"));
                 prt.setNome(rs.getString("nome"));
                 prt.setPrecoUnitario(rs.getDouble("preco_unitario"));
 
-                lista.add(CTP);
+                lista.add(prt);
             }
             rs.close();
             con.close();
