@@ -191,6 +191,7 @@ public class connectionDao {
                         int ValorDoProdutoTotal = 0;
 
                         System.out.println("\nREALIZAR PEDIDO: Os produtos disponiveis abaixo:");
+                        System.out.println("\n"+"Escolha uma opcao abaixo: EX: 1001 ou 1002 ...\n");
 
                         daoControllerMetodos vvs = new daoControllerMetodos();
                         List<Produto> lt = vvs.getCartapio();

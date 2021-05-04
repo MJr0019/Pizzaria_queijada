@@ -36,6 +36,6 @@ public class Produto extends ItemDePedido {
 
     @Override
     public String toString() {
-        return "Produto [codigoProduto=" + codigoProduto + ", nome=" + nome + ", precoUnitario=" + precoUnitario + "]";
+        return "(" + codigoProduto + ") -   " + nome+":"+ "  R$:" + precoUnitario + "\n";
     }
 }
