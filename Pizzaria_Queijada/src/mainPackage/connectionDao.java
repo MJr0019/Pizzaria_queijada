@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Scanner;
 import produtoPackage.Produto;
 import pedidoPackage.Pedido;
@@ -190,18 +191,13 @@ public class connectionDao {
                         int ValorDoProdutoTotal = 0;
 
                         System.out.println("\nREALIZAR PEDIDO: Os produtos disponiveis abaixo:");
-
-                        System.out.println(
-                                "Escolha uma opcao abaixo: EX: 1001 ou 1002 ...\n"
-                                + "(1001)   -   Pizza Muçarela              R$:5.00\n"
-                                + "(1002)   -   Pizza Calabresa             R$:6.00\n"
-                                + "(1003)   -   Pizza Presunto              R$:6.00\n"
-                                + "(1004)   -   Refrigerante de cola        R$:8.00\n"
-                                + "(1005)   -   Refrigerante de laranja     R$:7.00\n"
-                                + "(1006)   -   Mini pudim                  R$:3.50\n"
-                                + "(1007)   -   Brigadeiro                  R$:2.50\n "
-                        );
-
+                        
+                        daoControllerMetodos VrController2 = new daoControllerMetodos();
+                            List<Produto> lt = VrController2.getCartapio();
+                                for (Produto produto : lt) {
+                                    System.out.println(produto);
+                                }
+                                
                         int cp = cardapio.nextInt();
 
                         if (cp == 1001) {

@@ -5,12 +5,15 @@ import funcionariosPackage.Funcionario;
 import java.sql.Connection;
 import java.time.LocalDate;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 //import java.sql.ResultSet;
 import java.sql.SQLException;
 //import java.time.LocalDate;
 import java.util.ArrayList;
 import pedidoPackage.Pedido;
 import produtoPackage.Produto;
+
+
 
 public class daoControllerMetodos {
 
@@ -295,5 +298,35 @@ public class daoControllerMetodos {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    
+        public ArrayList<Produto> getCartapio() {
+        String sql = "select * from Produto order by codigo_produto";
+        
+        Produto prt = new Produto();
+        
+        try {
+            ArrayList<Produto> lista = new ArrayList();
+            PreparedStatement stmt = con.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Produto CTP = new Produto();
+
+                prt.setCodigoProduto(rs.getInt("codigo_produto"));
+                prt.setNome(rs.getString("nome"));
+                prt.setPrecoUnitario(rs.getDouble("preco_unitario"));
+
+                lista.add(CTP);
+            }
+            rs.close();
+            con.close();
+            stmt.close();
+
+            return lista;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
