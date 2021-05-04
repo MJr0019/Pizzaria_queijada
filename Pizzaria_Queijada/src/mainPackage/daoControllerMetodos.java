@@ -102,13 +102,13 @@ public class daoControllerMetodos {
             stmt.setObject(4, localDate); //pegando a data
             stmt.setInt(5, pedido.getValorTotal());
 
-            System.out.println("Pedido realizado com sucesso!!");
+            System.out.println("\nPedido realizado com sucesso!!\n");
 
             stmt.execute();
             stmt.close();
             con.close();
 
-            System.out.println("Gravado com sucesso");
+            System.out.println("Gravado com sucesso\n");
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -153,7 +153,7 @@ public class daoControllerMetodos {
             stmt.close();
             con.close();
 
-            System.out.println("Gravado com sucesso");
+            System.out.println("\nGravado com sucesso\n");
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -175,7 +175,7 @@ public class daoControllerMetodos {
             stmt.close();
             con.close();
 
-            System.out.println("Apagado com sucesso");
+            System.out.println("\nApagado com sucesso\n");
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -222,7 +222,7 @@ public class daoControllerMetodos {
             stmt.close();
             con.close();
 
-            System.out.println("Gravado com sucesso");
+            System.out.println("\nGravado com sucesso\n");
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -265,33 +265,6 @@ public class daoControllerMetodos {
             stmt.execute();
             stmt.close();
             con.close();
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    //cadastrar pedido
-    public void CadastrarPedido(Pedido pedido, LocalDate lD) {
-        String sql = "insert into pedido (codigo_pedido, codigo_cliente, codigo_funcionario, data_pedido, valor_total) values (?,?,?,?,?)";
-
-        try {
-            PreparedStatement stmt = con.prepareStatement(sql);
-            LocalDate localDate = lD;
-
-            stmt.setInt(1, pedido.getCodigoPedido());
-            stmt.setInt(2, pedido.getCodigoCliente());
-            stmt.setDouble(3, pedido.getCodigoFuncionario());
-            stmt.setObject(4, localDate);
-            stmt.setDouble(5, pedido.getValorTotal());
-
-            System.out.println("\nPedido cadastrado com sucesso\n");
-
-            stmt.execute();
-            stmt.close();
-            con.close();
-
-            System.out.println("Gravado com sucesso");
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
