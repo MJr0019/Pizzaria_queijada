@@ -1,0 +1,13 @@
+Link do GitHub: https://github.com/isobrrj/Pizzaria_queijada/tree/mjr-dev
+
+Como Usar:
+
+Executar o projeto
+- Implementar o jar do PostgreSQL dentro do projeto.
+
+- Verifique a porta, configurações do banco antes de rodar o projeto.
+
+- Para rodar o projeto, navegue até mainPackage e execute o connectionDao
+		connectionDao executa todo o projeto sem precisar de nenhum outro arquivo.
+
+connectionFactory O banco precisa ficar com a mesma configuração no connectionDao no connectionFactory
