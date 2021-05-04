@@ -5,12 +5,15 @@ import funcionariosPackage.Funcionario;
 import java.sql.Connection;
 import java.time.LocalDate;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 //import java.sql.ResultSet;
 import java.sql.SQLException;
 //import java.time.LocalDate;
 import java.util.ArrayList;
 import pedidoPackage.Pedido;
 import produtoPackage.Produto;
+
+
 
 public class daoControllerMetodos {
 
@@ -102,13 +105,13 @@ public class daoControllerMetodos {
             stmt.setObject(4, localDate); //pegando a data
             stmt.setInt(5, pedido.getValorTotal());
 
-            System.out.println("Pedido realizado com sucesso!!");
+            System.out.println("\nPedido realizado com sucesso!!\n");
 
             stmt.execute();
             stmt.close();
             con.close();
 
-            System.out.println("Gravado com sucesso");
+            System.out.println("Gravado com sucesso\n");
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -153,7 +156,7 @@ public class daoControllerMetodos {
             stmt.close();
             con.close();
 
-            System.out.println("Gravado com sucesso");
+            System.out.println("\nGravado com sucesso\n");
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -175,7 +178,7 @@ public class daoControllerMetodos {
             stmt.close();
             con.close();
 
-            System.out.println("Apagado com sucesso");
+            System.out.println("\nApagado com sucesso\n");
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -222,7 +225,7 @@ public class daoControllerMetodos {
             stmt.close();
             con.close();
 
-            System.out.println("Gravado com sucesso");
+            System.out.println("\nGravado com sucesso\n");
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -271,33 +274,6 @@ public class daoControllerMetodos {
         }
     }
 
-    //cadastrar pedido
-    public void CadastrarPedido(Pedido pedido, LocalDate lD) {
-        String sql = "insert into pedido (codigo_pedido, codigo_cliente, codigo_funcionario, data_pedido, valor_total) values (?,?,?,?,?)";
-
-        try {
-            PreparedStatement stmt = con.prepareStatement(sql);
-            LocalDate localDate = lD;
-
-            stmt.setInt(1, pedido.getCodigoPedido());
-            stmt.setInt(2, pedido.getCodigoCliente());
-            stmt.setDouble(3, pedido.getCodigoFuncionario());
-            stmt.setObject(4, localDate);
-            stmt.setDouble(5, pedido.getValorTotal());
-
-            System.out.println("\nPedido cadastrado com sucesso\n");
-
-            stmt.execute();
-            stmt.close();
-            con.close();
-
-            System.out.println("Gravado com sucesso");
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     //atualizar pedido
     public void AtualizarPedido(Pedido pedido, LocalDate lD) {
         String sql = "update pedido set codigo_cliente = ?, codigo_funcionario = ?, data_pedido = ?, valor_total= ? where codigo_pedido = ?";
@@ -322,5 +298,35 @@ public class daoControllerMetodos {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    
+        public ArrayList<Produto> getCartapio() {
+        String sql = "select * from Produto order by codigo_produto";
+        
+        Produto prt = new Produto();
+        
+        try {
+            ArrayList<Produto> lista = new ArrayList();
+            PreparedStatement stmt = con.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Produto CTP = new Produto();
+
+                prt.setCodigoProduto(rs.getInt("codigo_produto"));
+                prt.setNome(rs.getString("nome"));
+                prt.setPrecoUnitario(rs.getDouble("preco_unitario"));
+
+                lista.add(CTP);
+            }
+            rs.close();
+            con.close();
+            stmt.close();
+
+            return lista;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
