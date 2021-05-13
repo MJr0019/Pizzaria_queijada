@@ -13,12 +13,12 @@ A pizzaria Queijada está querendo informatizar o seu sistema de pedidos. Seguin
 <img src=https://github.com/isobrrj/Pizzaria_queijada/blob/main/images/sendGit.png/>
 </p>
 
-## O desafio 
+## O Desafio 
 <p>
 Todas as informações requsitadas para o desenvolvimento do projeto
 </p>
 
-- [Projeto](https://github.com/isobrrj/Pizzaria_queijada/blob/main/Pizzaria%20Queijada.pdf) pdf
+- [Projeto](https://github.com/isobrrj/Pizzaria_queijada/blob/main/Pizzaria%20Queijada.pdf).pdf
 
 
 <p>&nbsp;&nbsp;</p>
@@ -47,9 +47,11 @@ Todas as informações requsitadas para o desenvolvimento do projeto
 
 ## ⌛ Status
 
-<p> O projeto encontra-se em desenvolvimento.
+<p> O projeto finalizado.
 </p>
 
 ## Desenvolvedores
 
-👦 [Marcílio Júnior](https://github.com/MJr0019), 👦 [Igor Soares](https://github.com/isobrrj)
+- 👦 [Marcílio Júnior](https://github.com/MJr0019), 
+
+- 👦 [Igor Soares](https://github.com/isobrrj)
