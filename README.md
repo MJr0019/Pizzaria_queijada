@@ -15,10 +15,10 @@ A pizzaria Queijada está querendo informatizar o seu sistema de pedidos. Seguin
 
 ## O Desafio 
 <p>
-Todas as informações requsitadas para o desenvolvimento do projeto
+Todas as informações requsitadas para o desenvolvimento do projeto está em um arquivo PDF.
 </p>
 
-- [Projeto](https://github.com/isobrrj/Pizzaria_queijada/blob/main/Pizzaria%20Queijada.pdf).pdf
+- [Projeto](https://github.com/isobrrj/Pizzaria_queijada/blob/main/Pizzaria%20Queijada.pdf) ~ Arquivo .pdf
 
 
 <p>&nbsp;&nbsp;</p>
@@ -36,9 +36,9 @@ Todas as informações requsitadas para o desenvolvimento do projeto
 
 # Executar o projeto
 ``` 
-- Implementar o jar do PostgreSQL dentro do projeto
-- Verifique a porta, configurações do banco antes de rodar o projeto
-- Para rodar o projeto, navegue até mainPackage e execute o connectionDao
+- Implementar o jar do PostgreSQL dentro do projeto.
+- Verifique a porta, configurações do banco antes de rodar o projeto.
+- Para rodar o projeto, navegue até mainPackage e execute o connectionDao.
 ```
 - [connectionDao](https://github.com/isobrrj/Pizzaria_queijada/blob/main/Pizzaria_Queijada/src/mainPackage/connectionDao.java) executa todo o projeto sem precisar de nenhum outro arquivo
 
@@ -47,7 +47,7 @@ Todas as informações requsitadas para o desenvolvimento do projeto
 
 ## ⌛ Status
 
-<p> O projeto finalizado.
+<p> Projeto finalizado.
 </p>
 
 ## Desenvolvedores
