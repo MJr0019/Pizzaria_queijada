@@ -18,7 +18,7 @@ A pizzaria Queijada está querendo informatizar o seu sistema de pedidos. Seguin
 Todas as informações requsitadas para o desenvolvimento do projeto está em um arquivo PDF.
 </p>
 
-- [Projeto](https://github.com/isobrrj/Pizzaria_queijada/blob/main/Pizzaria%20Queijada.pdf) ~ Arquivo .pdf
+- [Projeto](https://github.com/isobrrj/Pizzaria_queijada/blob/main/Pizzaria%20Queijada.pdf) ~ Arquivo em .pdf
 
 
 <p>&nbsp;&nbsp;</p>
