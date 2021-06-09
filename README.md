@@ -47,8 +47,7 @@ Todas as informações requsitadas para o desenvolvimento do projeto está em um
 
 ## ⌛ Status
 
-<p> Projeto finalizado.
-</p>
+- Projeto Finalizado.
 
 ## Desenvolvedores
 
