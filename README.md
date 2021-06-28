@@ -13,7 +13,7 @@ A pizzaria Queijada está querendo informatizar o seu sistema de pedidos. Seguin
 </p>
 
 <p align="center">
-<img src=https://github.com/isobrrj/Pizzaria_queijada/blob/main/images/R02.png/>
+<img src=https://github.com/isobrrj/Pizzaria_queijada/blob/main/images/R02.png>
 </p>
 
 ## 💻 Telas
