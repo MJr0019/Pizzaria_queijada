@@ -1,5 +1,5 @@
 <h1 align="center">
-	🍕 Pizzaria Queijada
+	🍕 Pizzaria Queijada 
 </h1> 
 
 ## 📚 Sobre
