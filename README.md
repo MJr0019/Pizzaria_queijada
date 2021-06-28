@@ -6,7 +6,15 @@
 
 Trabalho de Programação II - 2021.1.
 
-A pizzaria Queijada está querendo informatizar o seu sistema de pedidos. Seguindo as demandas do proprietário
+A pizzaria Queijada está querendo informatizar o seu sistema de pedidos. Seguindo as demandas do proprietário:
+
+<p align="center">
+<img src=https://github.com/isobrrj/Pizzaria_queijada/blob/main/images/R01.png/>
+</p>
+
+<p align="center">
+<img src=https://github.com/isobrrj/Pizzaria_queijada/blob/main/images/R02.png/>
+</p>
 
 ## 💻 Telas
 <p align="center">
@@ -18,7 +26,7 @@ A pizzaria Queijada está querendo informatizar o seu sistema de pedidos. Seguin
 Todas as informações requsitadas para o desenvolvimento do projeto está em um arquivo PDF.
 </p>
 
-- [Projeto](https://github.com/isobrrj/Pizzaria_queijada/blob/main/Pizzaria%20Queijada.pdf) ~ Arquivo em .pdf.
+- [Projeto](https://github.com/isobrrj/Pizzaria_queijada/blob/main/Pizzaria%20Queijada.pdf) ~ Arquivo em .pdf do projeto.
 
 
 <p>&nbsp;&nbsp;</p>
